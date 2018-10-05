@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Register A New Account</h2>
+<form action="/register" method="post">
+  <p><label>First Name <input type="text" name="first"/></label></p>
+  <p><label>Last Name <input type="text" name="last"/></label></p>
+  <p><label>Male <input type="checkbox" name="gender"/></label></p>
+  <p><label>Female <input type="checkbox" name="gender"/></label></p>
+  <p><label>Age <input type="number" name="age"/></label></p>
+  <p><label>Email <input type="email" name="email"/></label></p>
+  <p><label>New Password <input type="password" name="password"/></label></p>
+  <p><label>Verify Password <input type="password" name="verify"/></label></p>
+  <p><input type="submit" value="Register"/></p>
+</form>
+
+{% endblock %}
+
+
+
+
+
+
+
+<!-- the USER register will POST first name, last name, email, password to the USER database
+
+the Advocate Register will POST email and password to the Advocate database
+
+-->

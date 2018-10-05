@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for user in users %}
+{% for advocate in advocates %}
+{% for first_name in first_names %}
+{% for last_name in last_names %}
+
+{% for endorsement_text in endorsement_texts %}
+
+
+<div class = "profile">
+    <img src = "picture_url">
+    <h1> {{user.first_name}} {{user.last_name}}</h1>
+    <p class = "Age"> {{user.age}} </p>
+    <p class = "Received Endorsement"> {{advocate.endorsement_text}}</p>
+
+
+
+</div>
+
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+
+{% endblock content %}
+
+<!--<form action="/profile" method="get">
+    <p><label>Email <input type="text" name="email"/></label></p>
+    <p><label>New Password <input type="password" name="password"/></label></p>
+    <p><label>Verify Password <input type="password" name="verify"/></label></p>
+    <p><input type="submit" value="Register"/></p>
+  </form> -->
