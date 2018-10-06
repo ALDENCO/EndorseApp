@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-  {% for user in users %}
-  {% for advocate in advocates %}
+{% for user in users %}
+{% for advocate in advocates %}
+{% for first_name in first_names %}
+{% for last_name in last_names %}
+{% for picture_url in picture_urls %}
+{% for endorsement_text in endorsement_texts %}
 
 <h2>Endorse {{user.first_name}} {{user.last_name}}</h2>
 <form action="/endorse" method="post">
@@ -12,6 +16,10 @@
   <p><input type="submit" value="Endorse"/></p>
 </form>
 
+  {% endfor %}
+  {% endfor %}
+  {% endfor %}
+  {% endfor %}
   {% endfor %}
   {% endfor %}
 {% endblock %}

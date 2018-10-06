@@ -5,6 +5,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(120))
     last_name = db.Column(db.String(120))
+    age = db.Column(db.Integer)
     email = db.Column(db.String(120), unique= True)
     password = db.Column(db.String(120))
     advocates = db.relationship('Advocate',backref = 'owner', lazy=True) #this tells the database that there is a relationship between the two tables Advocate & User

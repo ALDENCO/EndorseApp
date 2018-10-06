@@ -23,7 +23,17 @@ def login():
     elif request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
+        verify = request.form['verify']
+        age = request.form['age']
         users = User.query.filter_by(email=email)
+        if users.count() == 1:
+            user = users.first()
+            if password == user.password:
+                session['user'] = user.email
+                flash('welcome back, '+user.email)
+                return redirect("/")
+        flash('bad username or password')
+        return redirect("/login")
 
 @app.route('/register', methods = ['GET','POST'])
 def register():
@@ -32,14 +42,19 @@ def register():
         last_name = request.form['last_name']
         male = request.form['male']
         female = request.form['female']
+        age = request.form['age']
         email = request.form['email']
         password = request.form['password']
         verify = request.form['verify']
         #owner = request.arg.get('user']
-        pw_hash = create_pw_hash(password) #here I'm taking the information captured from the form and declaring what columns it needsto go in in teh databaase
+        #pw_hash = create_pw_hash(password) #here I'm taking the information captured from the form and declaring what columns it needsto go in in teh databaase
         db.session.add(User)
-            #email=email,
-            #first_name=first_name,
+            email=email,
+            first_name=first_name,
+            last_name = last_name,
+            age = age,
+            password = password
+
             #password=pw_hash,
         
         if password != verify:
@@ -84,7 +99,7 @@ def profile(): #if logged in, the profile should display the information stored 
     picture_url = Advocate.picture_url
     # this pulled from blogs, is an example of what I need to happen for my users from the user table
     
-    return render_template('profile.html', user = user, advocate = advocate , endorsement_text = endorsement_text, picture_url = picture_url, first_name = first_name, last_name = last_name)
+    return render_template('profile.html', user = user, advocate = advocate, endorsement_text = endorsement_text, picture_url = picture_url, first_name = first_name, last_name = last_name)
 
 @app.route('/endorse', methods = ['POST', 'GET'])
 def endorse(): #similar to registter, first thing is user gets empty form that means I need a get & a post

@@ -1,16 +1,18 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-{% for user in users %}
-{% for advocate in advocates %}
-{% for first_name in first_names %}
-{% for last_name in last_names %}
 
-{% for endorsement_text in endorsement_texts %}
+    {% for user in users %}
+    {% for advocate in advocates %}
+    {% for first_name in first_names %}
+    {% for last_name in last_names %}
+    {% for picture_url in picture_urls %}
+    {% for endorsement_text in endorsement_texts %}
 
 
 <div class = "profile">
-    <img src = "picture_url">
+    <img src = {{advocate.picture_url}}>
     <h1> {{user.first_name}} {{user.last_name}}</h1>
     <p class = "Age"> {{user.age}} </p>
     <p class = "Received Endorsement"> {{advocate.endorsement_text}}</p>
@@ -19,12 +21,14 @@
 
 </div>
 
-{% endfor %}
-{% endfor %}
-{% endfor %}
-{% endfor %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
 
-{% endblock content %}
+{% endblock %}
 
 <!--<form action="/profile" method="get">
     <p><label>Email <input type="text" name="email"/></label></p>
