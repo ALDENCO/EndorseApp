@@ -1,29 +1,24 @@
 {% extends "base.html" %}
+
 {% block content %}
 
 {% for user in users %}
-{% for advocate in advocates %}
-{% for first_name in first_names %}
-{% for last_name in last_names %}
-{% for picture_url in picture_urls %}
-{% for endorsement_text in endorsement_texts %}
-
 <h2>Endorse {{user.first_name}} {{user.last_name}}</h2>
+{% endfor %}
+
 <form action="/endorse" method="post">
   <p><label>Provide your endorsement here: <input type="text" name="endorsement_text"/></label></p>
-  <input type="file" name="pic" accept="image/*">
-    <input type="submit">
+  <p><label> Provide image url <input type="text" name="picture_url"></label></p>
   <p><input type="submit" value="Endorse"/></p>
 </form>
 
-  {% endfor %}
-  {% endfor %}
-  {% endfor %}
-  {% endfor %}
-  {% endfor %}
-  {% endfor %}
-{% endblock %}
 
+
+
+    
+  
+          
+{% endblock %}
 
 <!-- endorse will POST endorsement_text and/or picture_url data to the Advocate database  -->
 
