@@ -108,14 +108,15 @@ def view_empty_request_endorsement_form():
 @app.route('/request_endorsement', methods = ['POST'])
 def send_request_endorsement_form():
     email = request.form['email']
-
     user_id = session['user_id']
     
+    user = User(first_name = first_name, last_name = last_name)
     advocate = Advocate(email = email, owner_id = user_id)
     db.session.add(advocate)
     db.session.commit()
-    return ('send_email') #(f"{advocate.email} email sent here")
-    return redirect('/request_endorsement')
+    return (f"To:{advocate.email} Subject: {user.first_name} {user.last_name} is requesting you endorse them")
+    #return (send_email) #(f"{advocate.email} email sent here")
+    #return redirect('/request_endorsement')
 
 @app.route('/endorse/<advocate_id>', methods=['GET'])
 def now_view_empty_endorsement_form(advocate_id):
