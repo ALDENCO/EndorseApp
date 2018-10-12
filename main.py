@@ -4,9 +4,6 @@ from models import User, Advocate
 import cgi
 
 
-#app = Flask(__name__)
-
-#app.config['DEBUG'] = True
 
 @app.route('/', methods = ['GET'])
 def index():
@@ -49,6 +46,10 @@ def is_email(string):
         domain_dot_index = string.find('.', atsign_index)
         domain_dot_present = domain_dot_index >= 0
         return domain_dot_present
+
+def send_email():
+    return (f"To:{advocate.email} Subject: {user.email} is requesting you endorse them")
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'GET': #the register route must first get the register html template
@@ -92,29 +93,13 @@ def profile(): #if logged in, the profile should display the information stored 
     # #else:
     #     #return redirect ('/login') # TODO: error handling
    
-    # return render_template('profile.html', users= users, owner = owner)
     
 
     #what is the current loggedin  users id? get it from the session 
     #create a variable that defines / or equals user
-    # #get the blog from the database using the ID!!!!
-    #user_id = request.args.get('user_id')
+   
     
-    # owner_id = 1
-    # #profile = User.query.get(owner_id)
-    
-    
-    # user = User.query.filter_by(id=owner_id).first() #.first says find the first matching item / data in that database's table
-    # first_name = User.first_name
-    # last_name = User.last_name
-    # age = User.age
-        
-
-    # advocate_id = 1
-    # advocate = Advocate.query.filter_by(id=advocate_id).first()
-    # endorsement_text = Advocate.endorsement_text
-    # picture_url = Advocate.picture_url
-    # this pulled from blogs, is an example of what I need to happen for my users from the user table
+   
 
 @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
@@ -129,7 +114,7 @@ def send_request_endorsement_form():
     advocate = Advocate(email = email, owner_id = user_id)
     db.session.add(advocate)
     db.session.commit()
-    print(f"{advocate.email} email sent here")
+    return ('send_email') #(f"{advocate.email} email sent here")
     return redirect('/request_endorsement')
 
 @app.route('/endorse/<advocate_id>', methods=['GET'])
@@ -138,7 +123,7 @@ def now_view_empty_endorsement_form(advocate_id):
 
 
 @app.route('/endorse/<advocate_id>', methods = ['POST'])
-def submit_endorsement(advocate_id): #similar to registter, first thing is user gets empty form that means I need a get & a post
+def submit_endorsement(advocate_id): 
     endorsement_text = request.form['endorsement_text']
     picture_url = request.form['picture_url']
   
@@ -160,16 +145,4 @@ if __name__ == "__main__":
 
 
 
-    # advocatea all have null owner id, in order to fix that I need to start earlier, when I request an advocate, that is the time to create the advocate in the database; make that route create the advocate, andn then once advocate is craeted i'lll hvae adovcate id; print out message "sending an email to advocate email address"
-
-    #email should have a link to endorse/advocate's id and then when someone does a post to that same url in endorse/advocateid, it should find the existing advocate and update it to have the new endosement_text and picture
-
-    # instead of the url be endorse/edvocate id it should be endorse/signed_payload (using it's dangerous library, its like the hashing concept, but its reversible) once advocate id is changed, I'd have to decrypt the payload to learn the id
-
-#sending emails will be a week long project likely 
-
-
-    #pictures can remain a picture url, (stretch stretch) and styling UI should all be final / end of project items
-
-
-    
+   
