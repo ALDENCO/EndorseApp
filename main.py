@@ -31,12 +31,11 @@ def login():
     elif request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        verify = request.form['verify']
         users = User.query.filter_by(email=email)
         if users.count() == 1:
             user = users.first()
             if password == user.password:
-                session['user'] = user.email
+                session['user_id'] = user.id
                 flash('welcome back, '+user.email)
                 return redirect("/")
         flash('bad username or password')
@@ -123,64 +122,36 @@ def view_empty_request_endorsement_form():
 
 @app.route('/request_endorsement', methods = ['POST'])
 def send_request_endorsement_form():
-        #owner = User.query.filter_by(email =session['email']).first()
-        email = request.form['email']
+    email = request.form['email']
 
-        
-        users = User.query.filter_by(email=email)
-        advocate = Advocate(email = email)
-        db.session.add(advocate)
-        db.session.commit()
-        session['advocate'] = advocate.email
-
-        users = User.query.all()
-        advocates = Advocate.query.all()
-
-        owner = request.args.get('user')
-        if owner:
-            advocates = Advocate.query.filter_by(owner_id=owner).all() #advocate id gets created but owner id doesn't
-            return render_template('request_endorsement.html', advocates = advocates, users = users, owner = owner)
-
-@app.route('/endorse', methods=['GET'])
-def now_view_empty_endorsement_form():
-    return render_template('endorse.html')
-#     advocate = Advocate(endorsement_text = endorsement_text, picture_url = picture_url)
-#     advocate_id = 1
-#     advocate_id = Advocate.query.filter_by(id=advocate_id).first()
-#     # advo_endorsement = advocate_id.endorsement_text
-#     # advo_picture = advocate_id.picture_url
-
-#     user_id = owner
-#      user = User.query.filter_by(id=user_id).first() #.first says find the first matching item / data in that database's table
-#     return render_template('endorse.html', owner = owner, endorsement_text = endorsement_text, picture_url = picture_url)
-
-# @app.route('/endorse/<advocate_id>', methods=['POST'])
-# def view_empty_endorsement_form(advocate_id):
-#     session['advocate'] = advocate.email
-#     advocate = Advocate(email = email)
-#     advocate_id = "" #session['advocate_id']
-#     advocate_id = Advocate.query.filter_by(id=advocate_id).first()
-#     advo_endorsement = advocate_id.endorsement_text
-#     advo_picture = advocate_id.picture_url
+    user_id = session['user_id']
     
-#     user_id = 1 #session['user_id']
-#     user = User.query.filter_by(id=user_id).first() #.first says find the first matching item / data in that database's table
-#     return render_template('endorse.html', user = user, endorsement_text = advo_endorsement, picture_url = advo_picture)
+    advocate = Advocate(email = email, owner_id = user_id)
+    db.session.add(advocate)
+    db.session.commit()
+    print(f"{advocate.email} email sent here")
+    return redirect('/request_endorsement')
 
-@app.route('/endorse', methods = ['POST'])
-def submit_endorsement(): #similar to registter, first thing is user gets empty form that means I need a get & a post
+@app.route('/endorse/<advocate_id>', methods=['GET'])
+def now_view_empty_endorsement_form(advocate_id):
+    return render_template('endorse.html', advocate_id = advocate_id)
+
+
+@app.route('/endorse/<advocate_id>', methods = ['POST'])
+def submit_endorsement(advocate_id): #similar to registter, first thing is user gets empty form that means I need a get & a post
     endorsement_text = request.form['endorsement_text']
     picture_url = request.form['picture_url']
-    advocate = Advocate(endorsement_text = endorsement_text, picture_url = picture_url)
+  
+    advocate = Advocate.query.get(advocate_id)
+    advocate.endorsement_text = endorsement_text
+    advocate.picture_url = picture_url
     db.session.add(advocate)
     db.session.commit()
     session['advocate'] = advocate.email
-    return redirect('/endorsed')
+    return redirect(f'/endorsed/{advocate_id}')
 
-@app.route('/endorsed', methods = ['GET'])
-def endorsed():
-    # owner = User.query.filter_by(email =session['email']).first()
-    session['advocate'] = advocate.email
+@app.route('/endorsed/<advocate_id>', methods = ['GET'])
+def endorsed(advocate_id):
     advocate = Advocate.query.filter_by(id=advocate_id).first()
     return render_template('endorsed.html', advocate = advocate)
 

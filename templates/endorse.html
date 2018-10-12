@@ -6,7 +6,7 @@
 <h2>Endorse {{user.first_name}} {{user.last_name}}</h2>
 {% endfor %}
 
-<form action="/endorse" method="post">
+<form action="/endorse/{{advocate_id}}" method="post">
   <p><label>Provide your endorsement here: <input type="text" name="endorsement_text"/></label></p>
   <p><label> Provide image url <input type="text" name="picture_url"></label></p>
   <p><input type="submit" value="Endorse"/></p>
