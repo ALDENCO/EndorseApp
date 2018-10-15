@@ -47,8 +47,8 @@ def is_email(string):
         domain_dot_present = domain_dot_index >= 0
         return domain_dot_present
 
-def send_email():
-    return (f"To:{advocate.email} Subject: {user.email} is requesting you endorse them")
+# def send_email():
+#     return (f"To:{advocate.email} Subject: {user.email} is requesting you endorse them")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -110,12 +110,16 @@ def send_request_endorsement_form():
     email = request.form['email']
     user_id = session['user_id']
     
-    user = User(first_name = first_name, last_name = last_name)
+    
+   
+   
+    
+    user = User.query.first()
     advocate = Advocate(email = email, owner_id = user_id)
     db.session.add(advocate)
     db.session.commit()
     return (f"To:{advocate.email} Subject: {user.first_name} {user.last_name} is requesting you endorse them")
-    #return (send_email) #(f"{advocate.email} email sent here")
+    #return (f"{advocate.email} email sent here")
     #return redirect('/request_endorsement')
 
 @app.route('/endorse/<advocate_id>', methods=['GET'])
