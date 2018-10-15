@@ -1,7 +1,12 @@
 from flask import Flask, request, redirect, render_template, session, flash
 from app import app, db
 from models import User, Advocate
+from itsdangerous import URLSafeSerializer
 import cgi
+import requests
+import os
+
+
 
 
 
@@ -105,44 +110,60 @@ def profile(): #if logged in, the profile should display the information stored 
 def view_empty_request_endorsement_form():
     return render_template('request_endorsement.html')
 
+SafeSerializer = URLSafeSerializer('advocate_id')
+
+
 @app.route('/request_endorsement', methods = ['POST'])
 def send_request_endorsement_form():
     email = request.form['email']
     user_id = session['user_id']
-    
-    
-   
-   
-    
     user = User.query.first()
     advocate = Advocate(email = email, owner_id = user_id)
     db.session.add(advocate)
     db.session.commit()
-    return (f"To:{advocate.email} Subject: {user.first_name} {user.last_name} is requesting you endorse them")
-    #return (f"{advocate.email} email sent here")
-    #return redirect('/request_endorsement')
 
-@app.route('/endorse/<advocate_id>', methods=['GET'])
-def now_view_empty_endorsement_form(advocate_id):
-    return render_template('endorse.html', advocate_id = advocate_id)
+    #import pdb; pdb.set_trace()
+    concealed_adv_id = SafeSerializer.dumps(advocate.id)
+  
+
+    url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
+    auth=("api", os.getenv('api_key'))
+    data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
+            "to": [f"{advocate.email}"],
+            "subject": "Hello",
+            "text": f"{user.first_name} {user.last_name} is requesting your endorsement! http://localhost:5000/endorse/{concealed_adv_id}"}
+    response = requests.post(url , auth = auth, data = data)
+    #print(response)
+    resp = response.json()
+    return redirect ('/request_endorsement')
+    
+#(f"To:{advocate.email} Subject: {user.first_name} {user.last_name} is requesting you endorse them")
+
+@app.route('/endorse/<concealed_advocate_id>', methods=['GET'])
+def now_view_empty_endorsement_form(concealed_advocate_id):
+    advocate_id = SafeSerializer.loads(concealed_advocate_id)
+    return render_template('endorse.html', advocate_id = advocate_id, concealed_advocate_id = concealed_advocate_id)
 
 
-@app.route('/endorse/<advocate_id>', methods = ['POST'])
-def submit_endorsement(advocate_id): 
+@app.route('/endorse/<concealed_advocate_id>', methods = ['POST'])
+def submit_endorsement(concealed_advocate_id): 
+    advocate_id = SafeSerializer.loads(concealed_advocate_id)
     endorsement_text = request.form['endorsement_text']
     picture_url = request.form['picture_url']
-  
+    
     advocate = Advocate.query.get(advocate_id)
     advocate.endorsement_text = endorsement_text
     advocate.picture_url = picture_url
     db.session.add(advocate)
     db.session.commit()
     session['advocate'] = advocate.email
-    return redirect(f'/endorsed/{advocate_id}')
+    return redirect(f'/endorsed/{concealed_advocate_id}')
 
-@app.route('/endorsed/<advocate_id>', methods = ['GET'])
-def endorsed(advocate_id):
+@app.route('/endorsed/<concealed_advocate_id>', methods = ['GET'])
+def endorsed(concealed_advocate_id):
+    advocate_id = SafeSerializer.loads(concealed_advocate_id)
     advocate = Advocate.query.filter_by(id=advocate_id).first()
+   
     return render_template('endorsed.html', advocate = advocate)
 
 if __name__ == "__main__":
