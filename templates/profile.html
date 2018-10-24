@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% for user in users %}
-<h1>ID {{user.id}}</h1>
-<p>Email {{user.email}}</p>
-<p>{{user.first_name}}</p>
-<p>{{user.last_name}}</p>
-<p>{{user.age}}</p>
+<div class="card">
+  <img src={{advocate.picture_url}} style="width:100%">
+  <h1>ID {{user.id}}</h1>
+  <p>Email {{user.email}}</p>
+  <p>{{user.first_name}}</p>
+  <p>{{user.last_name}}</p>
+  <p>{{user.age}}</p>
+  <a href="#"><i class="fa fa-dribbble"></i></a> 
+  <a href="#"><i class="fa fa-twitter"></i></a> 
+  <a href="#"><i class="fa fa-linkedin"></i></a> 
+  <a href="#"><i class="fa fa-facebook"></i></a> 
+  <p><button>Contact</button></p>
+</div>
      
 {% endfor %}  
 
