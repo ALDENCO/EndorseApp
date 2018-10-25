@@ -2,27 +2,27 @@
 
 {% block content %}
 <!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 {% for user in users %}
+{% for advocate in advocates %}
 <div class="card">
-  <img src={{advocate.picture_url}} style="width:100%">
-  <h1>ID {{user.id}}</h1>
-  <p>Email {{user.email}}</p>
-  <p>{{user.first_name}}</p>
-  <p>{{user.last_name}}</p>
+  <img src="{{advocate.picture_url}}" style="width:100%">
+  <h1>{{user.id}}</h1>
+  <p>{{user.email}}</p>
+  <p>{{user.first_name}} {{user.last_name}}</p>
   <p>{{user.age}}</p>
-  <a href="#"><i class="fa fa-dribbble"></i></a> 
-  <a href="#"><i class="fa fa-twitter"></i></a> 
   <a href="#"><i class="fa fa-linkedin"></i></a> 
   <a href="#"><i class="fa fa-facebook"></i></a> 
   <p><button>Contact</button></p>
 </div>
      
 {% endfor %}  
+{% endfor %}  
 
 {% for advocate in advocates %}
-<h1> {{advocate.endorsement_text}}</h1>
-<p> {{advocate.picture_url}}</p>
+<p> {{advocate.endorsement_text}}</p>
+<img src="{{advocate.picture_url}}" style="width:10%">
      
 {% endfor %}    
     
@@ -30,24 +30,3 @@
           
 {% endblock %}
  
-
-
-<!-- <div class = "profile">
-     <img src = {{ advocate.picture_url }}> -->
-    <!-- <h1> {{ user.first_name }} + {{ user.last_name }}</h1>
-    <p class = "Age"> {{ user.age }} </p>
-    <p class = "Received Endorsement"> {{ advocate.endorsement_text }}</p> -->
-
-
-
-<!-- </div> -->
-
-
-
-
-<!--<form action="/profile" method="get">
-    <p><label>Email <input type="text" name="email"/></label></p>
-    <p><label>New Password <input type="password" name="password"/></label></p>
-    <p><label>Verify Password <input type="password" name="verify"/></label></p>
-    <p><input type="submit" value="Register"/></p>
-  </form> -->

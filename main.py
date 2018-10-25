@@ -89,10 +89,9 @@ def profile(): #if logged in, the profile should display the information stored 
     owner = request.args.get('user')
     if owner:
         advocates = Advocate.query.filter_by(owner_id=owner).all()
-  
     users = User.query.all()
     advocates = Advocate.query.all()
-    return render_template('index.html', advocates = advocates, users = users, owner = owner)
+    return render_template('profile.html', advocates = advocates, users = users, owner = owner)
 
     #     profile = every column in user table  #get isn't allowed to change information; post is allowed to change information
     # #else:
