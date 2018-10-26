@@ -150,18 +150,20 @@ def submit_endorsement(concealed_advocate_id):
     endorsement_text = request.form['endorsement_text']
     picture_url = request.form['picture_url']
     
+    
     advocate = Advocate.query.get(advocate_id)
+    user = advocate.owner
     advocate.endorsement_text = endorsement_text
     advocate.picture_url = picture_url
     db.session.add(advocate)
     db.session.commit()
     session['advocate'] = advocate.email
-     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
+    url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
     auth=("api", os.getenv('api_key'))
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{user.email}"],
             "subject": "Hello",
-            "text": f"{advocate.email} is has endorsed you! http://localhost:5000/profile"}
+            "text": f"{advocate.email} has endorsed you! http://localhost:5000/profile"}
     response = requests.post(url , auth = auth, data = data)
     #print(response)
     resp = response.json()
@@ -171,8 +173,9 @@ def submit_endorsement(concealed_advocate_id):
 def endorsed(concealed_advocate_id):
     advocate_id = SafeSerializer.loads(concealed_advocate_id)
     advocate = Advocate.query.filter_by(id=advocate_id).first()
+    user = advocate.owner
    
-    return render_template('endorsed.html', advocate = advocate)
+    return render_template('endorsed.html', advocate = advocate, user = user)
 
 if __name__ == "__main__":
     app.run()

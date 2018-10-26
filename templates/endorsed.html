@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+
 <p>
-    <strong>{{advocate.email}}</strong> has endorsed you.
+    You've successfully endorsed <strong>{{user.first_name}} {{user.last_name}}</strong>.
 </p>
+
+<p> {{advocate.endorsement_text}}</p>
+<img src="{{advocate.picture_url}}" style="width:100%">
+
 {% endblock %}
 
 

@@ -1,4 +1,7 @@
+html {
+    background-color: grey;
 
+}
 
 .card {
     margin-top: 20%;
@@ -7,12 +10,13 @@
     margin: auto;
     padding: auto;
     text-align: center;
+    font-size: 18px;
 }
 
 .title {
     text-align: center;
-    color: black;
-    font-size: 32px;
+    color: white;
+    font-size: 40px;
 }
 
 button {
@@ -29,10 +33,12 @@ button {
 }
 
 a {
-    text-decoration: none;
-    font-size: 18px;
+    
+    font-size: 20px;
     color: blue;
+    text-decoration: underline;
     text-align: center;
+    margin: auto;
 }
 
 button:hover, a:hover {
@@ -43,10 +49,12 @@ div.navs {
     font-size: 18px;
     color: blue;
     text-align: center;
+    font-family: Helvetica;
 }
 
 p {
     text-align: center;
-    color: red;
+    color: white;
+    text-emphasis: bold;
 
 }
