@@ -156,6 +156,15 @@ def submit_endorsement(concealed_advocate_id):
     db.session.add(advocate)
     db.session.commit()
     session['advocate'] = advocate.email
+     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
+    auth=("api", os.getenv('api_key'))
+    data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
+            "to": [f"{user.email}"],
+            "subject": "Hello",
+            "text": f"{advocate.email} is has endorsed you! http://localhost:5000/profile"}
+    response = requests.post(url , auth = auth, data = data)
+    #print(response)
+    resp = response.json()
     return redirect(f'/endorsed/{concealed_advocate_id}')
 
 @app.route('/endorsed/<concealed_advocate_id>', methods = ['GET'])
