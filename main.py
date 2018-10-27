@@ -7,7 +7,9 @@ import requests
 import os
 
 
-
+@app.route('/home', methods = ['GET'])
+def view_blank_homepage():
+    return render_template('home.html')
 
 
 @app.route('/', methods = ['GET'])
