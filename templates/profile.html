@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Add icon library -->
 
 
 {% for user in users %}
@@ -21,11 +20,15 @@
 {% endfor %}  
 {% endfor %}  
 
+{% for user in users %}
 {% for advocate in advocates %}
+<div class = "card2">
+  <p> {{advocate.email}} provided {{user.first_name}} {{user.last_name}} the following endorsement and suggested the below picture:</p>
 <p> {{advocate.endorsement_text}}</p>
 <img src="{{advocate.picture_url}}" style="width:10%">
-     
-{% endfor %}    
+</div>
+{% endfor %}
+{% endfor %}     
     
   
           

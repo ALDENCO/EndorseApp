@@ -67,6 +67,8 @@ button {
 button:hover {
  border-color:white;
  border-style:solid;
+ visibility: visible;
+ 
 }
 button a:hover {
  
@@ -97,11 +99,26 @@ button:active {
 }  */
 
 p {
-    text-align: center;
+    text-align: justify;
     color: white;
     text-emphasis: bold;
-   
+    font-size: 30px;
 
+}
+
+.card2 {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    box-shadow: 0 4px 8px 0 #232526;
+    max-width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: justify;
+    font-size: 20px;
+    font-family: Simplifica;
+    letter-spacing: 7px;
 }
 
 .icon-bar {
