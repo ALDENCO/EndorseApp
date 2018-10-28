@@ -4,10 +4,13 @@ background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-2
 background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     font-family: Simplifica;
-
-
 }
+
 img {
+    text-align: center;
+}
+
+img.logo {
     text-align: center;
 }
 
@@ -110,16 +113,30 @@ p {
     display: block;
     margin-top: 0px;
     margin-bottom: 0px; 
-    box-shadow: 0 4px 8px 0 #232526;
+    box-shadow: 4px 4px 4px 4px #232526;
     max-width: 100%;
     margin-left:auto;
     margin-right: auto;
     padding: 10px;
     text-align: justify;
-    font-size: 20px;
+    font-size: 25px;
     font-family: Simplifica;
     letter-spacing: 7px;
 }
+
+.card2 p {
+    color: red;
+}
+.card2 p.quote {
+    color: red;
+    font-size: 20px;
+    font-family:Cavorting; 
+}
+
+.img2 {
+    text-align:center;
+}
+
 
 .icon-bar {
     width: 100px; /* Set a specific width */

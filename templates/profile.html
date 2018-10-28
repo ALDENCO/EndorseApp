@@ -23,9 +23,11 @@
 {% for user in users %}
 {% for advocate in advocates %}
 <div class = "card2">
-  <p> {{advocate.email}} provided {{user.first_name}} {{user.last_name}} the following endorsement and suggested the below picture:</p>
-<p> {{advocate.endorsement_text}}</p>
-<img src="{{advocate.picture_url}}" style="width:10%">
+  <p> {{advocate.email}} suggested the below photo and provided the following text:</p>
+<p class="quote"> I endorse {{user.first_name}} {{user.last_name}}: "{{advocate.endorsement_text}}"</p>
+  <div class ="img2">
+    <img src="{{advocate.picture_url}}" style="width:10%">
+  </div>
 </div>
 {% endfor %}
 {% endfor %}     
