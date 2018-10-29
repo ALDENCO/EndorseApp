@@ -6,9 +6,13 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
     font-family: Simplifica;
 }
 
-img {
-    text-align: center;
+.ribbon {
+    background-image: "1973481_598049722650_2130865745_o.jpg";
+    position:relative;
+    display: block;
 }
+
+
 
 img.logo {
     text-align: center;
@@ -33,23 +37,29 @@ img.logo {
 
 .title {
     text-align: center;
-    color: white;
-    font-size: 100px;
-    letter-spacing: 10px;
+    /* color: #636363; */
+    font-size: 150px;
+    letter-spacing: 15px;
     word-spacing: 25px;
+    background: linear-gradient(to right, #172a22 30%, #103d2a 60%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
     
 }
 
-button.contact {
+.contact {
     border: #232526;
     box-shadow: 0px 0px 1px 1px #232526;
     display: inline-block;
     padding: 8px;
     text-align: center;
-    background-color: transparent;
+    background-color: #131715;
     cursor: pointer;
     width: 100%;
     font-size: 50px;
+    font-family: Capsuula;
+    color:#103D2A;
+    
 }
 
 button.contact:hover, a:hover {
@@ -58,6 +68,7 @@ button.contact:hover, a:hover {
 
 button {
     border: #232526;
+    
     box-shadow: 1px 1px 1px 1px #232526;
     padding: 5px; 
     background-color: transparent;
@@ -102,7 +113,7 @@ button:active {
 }  */
 
 p {
-    text-align: justify;
+    text-align: center;
     color: white;
     text-emphasis: bold;
     font-size: 30px;
@@ -114,27 +125,33 @@ p {
     margin-top: 0px;
     margin-bottom: 0px; 
     box-shadow: 4px 4px 4px 4px #232526;
-    max-width: 100%;
+    max-width: 50%;
     margin-left:auto;
     margin-right: auto;
     padding: 10px;
-    text-align: justify;
-    font-size: 25px;
+    font-size: 20px;
     font-family: Simplifica;
     letter-spacing: 7px;
+    background-color:#211D1C;
 }
 
 .card2 p {
-    color: red;
+    color:#582A18;
+    text-align: justify;
 }
+
 .card2 p.quote {
-    color: red;
-    font-size: 20px;
-    font-family:Cavorting; 
+    color:#636363;
+    font-size: 25px;
+    font-family:Raleway;
+    text-align: center;
 }
 
 .img2 {
     text-align:center;
+  
+
+    
 }
 
 
@@ -144,14 +161,15 @@ p {
     float:left;
     padding: 0px;
     background: #232526;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    ; /* Dark-grey background */
+    background: -webkit-linear-gradient(to left, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 
 .icon-bar a {
     display: block;
+    color: #636363;
     padding: 30px 30px 30px 30px; 
     transition: all 0.3s ease; /*Add transition for hover effects */
     /* opacity: .8;
@@ -162,7 +180,7 @@ p {
 
 .icon-bar a:hover {
     /* background-color:white; */
-    color: white;  /* Add a hover color */
+    color: #636363;  /* Add a hover color */
     visibility: visible;
     
     

@@ -54,9 +54,6 @@ def is_email(string):
         domain_dot_present = domain_dot_index >= 0
         return domain_dot_present
 
-# def send_email():
-#     return (f"To:{advocate.email} Subject: {user.email} is requesting you endorse them")
-
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'GET': #the register route must first get the register html template
@@ -94,18 +91,6 @@ def profile(): #if logged in, the profile should display the information stored 
     users = User.query.all()
     advocates = Advocate.query.all()
     return render_template('profile.html', advocates = advocates, users = users, owner = owner)
-
-    #     profile = every column in user table  #get isn't allowed to change information; post is allowed to change information
-    # #else:
-    #     #return redirect ('/login') # TODO: error handling
-   
-    
-
-    #what is the current loggedin  users id? get it from the session 
-    #create a variable that defines / or equals user
-   
-    
-   
 
 @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
