@@ -54,29 +54,6 @@ button.contact:hover, a:hover {
     opacity: 0.05;
 }
 
-button {
-    border: #232526;
-    box-shadow: 1px 1px 1px 1px #232526;
-    padding: 5px; 
-    background-color: transparent;
-    cursor: pointer;
-    width: 100%;
-
-    /* font-size: 50px; */  
-}
-button:hover {
- border-color:white;
- border-style:solid;
- visibility: visible;
-}
-
-button a:hover {
- 
-}
-
-button:active {
-    color:red;
-}
 
 
 p {
@@ -100,6 +77,7 @@ p {
     font-family: Simplifica;
     letter-spacing: 7px;
     background-color:#211D1C;
+    
 }
 
 .card2 p {
@@ -126,24 +104,24 @@ p {
     /* vertical-align: center; */
     float:left;
     padding: 0px;
+    border: 0;
     background: #232526;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
+a {
+    background-color:#232526;
+}
 
 .icon-bar a {
     display: block;
     padding: 30px 30px 30px 30px; 
     transition: all 0.3s ease; /*Add transition for hover effects */
-    /* opacity: .8;
-    background-color: white; /* White text color */
-    /* font-size: 36px; Increased font-size */
 }
 
 .icon-bar a:hover {
-    /* background-color:white; */
     color: #636363;  /* Add a hover color */
     visibility: visible;
     
@@ -152,7 +130,6 @@ p {
 }
 
 .active {
-    /* background-color:white; */
     color: red;  /* Add an active/current color */
    
 }
