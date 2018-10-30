@@ -6,17 +6,7 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
     font-family: Simplifica;
 }
 
-.ribbon {
-    background-image: "1973481_598049722650_2130865745_o.jpg";
-    position:relative;
-    display: block;
-}
 
-
-
-img.logo {
-    text-align: center;
-}
 
 .card {
     display: block;
@@ -31,8 +21,6 @@ img.logo {
     font-size: 30px;
     font-family: Simplifica;
     letter-spacing: 7px;
-    
-
 }
 
 .title {
@@ -68,22 +56,20 @@ button.contact:hover, a:hover {
 
 button {
     border: #232526;
-    
     box-shadow: 1px 1px 1px 1px #232526;
     padding: 5px; 
     background-color: transparent;
     cursor: pointer;
     width: 100%;
 
-    /* font-size: 50px; */
-    
+    /* font-size: 50px; */  
 }
 button:hover {
  border-color:white;
  border-style:solid;
  visibility: visible;
- 
 }
+
 button a:hover {
  
 }
@@ -92,25 +78,6 @@ button:active {
     color:red;
 }
 
-/* a {
-    
-    font-size: 20px;
-    color: blue;
-    text-decoration: underline;
-    text-align: center;
-    margin: auto;
-    
-} */
-
-
-
-/* div.navs {
-    font-size: 18px;
-    color: blue;
-    text-align: center;
-   
-
-}  */
 
 p {
     text-align: center;
@@ -148,12 +115,11 @@ p {
 }
 
 .img2 {
-    text-align:center;
-  
-
-    
+    text-align:center;    
 }
 
+
+/* body {margin:0} */
 
 .icon-bar {
     width: 100px; /* Set a specific width */
@@ -169,13 +135,11 @@ p {
 
 .icon-bar a {
     display: block;
-    color: #636363;
     padding: 30px 30px 30px 30px; 
     transition: all 0.3s ease; /*Add transition for hover effects */
     /* opacity: .8;
     background-color: white; /* White text color */
     /* font-size: 36px; Increased font-size */
-    visibility: hidden;
 }
 
 .icon-bar a:hover {
@@ -187,7 +151,7 @@ p {
 
 }
 
-.icon-bar a:active {
+.active {
     /* background-color:white; */
     color: red;  /* Add an active/current color */
    
