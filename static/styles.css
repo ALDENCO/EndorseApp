@@ -1,12 +1,16 @@
 html {
     background: #232526;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: -webkit-linear-gradient(to bottom, #232526,#414345 );  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom,  #232526,#414345 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     font-family: Simplifica;
 }
 
-
+.homehtml {
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #000000,#434343);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #000000,#434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 .card {
     display: block;
@@ -31,7 +35,8 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
     word-spacing: 25px;
     background: linear-gradient(to right, #172a22 30%, #103d2a 60%);
 	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 2px #000000;
     
 }
 
@@ -41,7 +46,7 @@ button.contact {
     display: inline-block;
     padding: 8px;
     text-align: center;
-    background-color: #131715;
+    background-color:transparent;
     cursor: pointer;
     width: 100%;
     font-size: 50px;
@@ -52,10 +57,62 @@ button.contact {
 }
 
 button.contact:hover, a:hover {
-    opacity: 0.05;
+    color:chartreuse;
+    background:transparent;
+
+    
+}
+
+button.icon-bar {
+    width: 100px; /* Set a specific width */
+    vertical-align: center;
+    /* position: sticky;
+    float:left; */
+    padding: 10px 10px 10px 10px;
+    border: 0;
+    border-color:#232526;  /* fallback for old browsers */
+   background: transparent;
+
+    
+}
+
+button.icon-bar:hover, a:hover {
+    color:#103D2A;
+    background:transparent;
+   
 }
 
 
+button.homepage {
+    border:0;
+    position:relative;
+    left: 500px;
+    top: -100px;
+    display: inline-block;
+    padding: 8px;
+    text-align: center;
+    background-color:transparent;
+    cursor: pointer;
+    width: auto;
+    text-shadow: 1px 1px 1px #000000;
+
+    
+}
+
+button.homepage:hover, a:hover {
+    color:#103D2A;
+    background:transparent;
+     
+}
+
+svg {
+    fill:#103D2A, 1px 1px 1px #000000;
+    text-shadow: 1px 1px 1px #000000;
+}
+svg :hover {
+    transition: all 0.25s ease; /*Add transition for hover effects */
+    fill:chartreuse;
+}
 
 p {
     text-align: center;
@@ -100,44 +157,28 @@ p {
 
 .icon-bar {
     width: 100px; /* Set a specific width */
-    vertical-align: center;
-    position: sticky;
+    vertical-align: auto;
+    position: relative;
     float:left;
-    padding: 0px;
-    border: 0;
-    text-align: center;
-    background: #232526;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #414345, #232526); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
-
-}
-
-.icon-bar a {
     display: block;
-    padding: 0px 10px 10px 10px; 
-    transition: all 0.3s ease; /*Add transition for hover effects */
-    background-color: transparent;
-    
+    padding: 20px 10px 10px 5px;
+    border: 0;
+    border-color:#232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* text-align: center; */
 }
 
-.icon-bar :hover {
-    color: #636363;  /* Add a hover color */
-    visibility: visible;
-    
 
-}
-
-button {
-    background-color: transparent;
-    border:0;
+.hometitle {
     text-align: center;
-    position: sticky;
-
-    
-}
-
-.active {
-    color: red;  /* Add an active/current color */
-   
+    /* color: #636363; */
+    font-size: 300px;
+    letter-spacing: 15px;
+    word-spacing: 25px;
+    background: linear-gradient(to right, #172a22 30%, #103d2a 60%);
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 2px #000000;
 }
 
