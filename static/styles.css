@@ -48,7 +48,7 @@ button.contact {
     text-align: center;
     background-color:transparent;
     cursor: pointer;
-    width: 100px;
+    width: 100%;
     font-size: 50px;
     font-family: Capsuula;
     color:#103D2A;
@@ -181,4 +181,54 @@ p {
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 2px #000000;
 }
+/* form {
+    text-align: center;
+    position: relative;
+} */
 
+input {
+    width: 35%;
+    height: 50px;
+    text-align: justify;
+    background-color:#2a2c2b;
+    border:solid;
+    border-color: #232526;
+    color: #582a18;
+    position: relative;
+    /* left: 200px; */
+}
+
+label {
+    font: Simplifica;
+    font-size: 50px;
+    letter-spacing: 15px;
+    text-align: justify;
+    color: #636363;
+    vertical-align: center;
+    position: relative;
+    left: 100px;
+   
+}
+
+p.input {
+    text-align: justify;
+    position: relative;
+    
+    
+}
+
+input.registerbutton {
+    width: 300px; /* Set a specific width */
+    vertical-align: center;
+    text-align: center;
+    position: sticky;
+    float:center; 
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    border-color:#232526;  /* fallback for old browsers */
+    background: #232526;
+    color:#636363;
+    font: Capsuula;
+    font-size: 20px;
+    letter-spacing: 15px;
+}
