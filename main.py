@@ -164,9 +164,10 @@ def endorsed(concealed_advocate_id):
    
     return render_template('endorsed.html', advocate = advocate, user = user)
 
-@app.route('/logout', methods = ['GET'])
-def view_logout_page():
-    return render_template('logout.html')
+@app.route("/logout", methods=['POST'])
+def logout():
+    del session['user']
+    return redirect("/")
 
 
 if __name__ == "__main__":
