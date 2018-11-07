@@ -1,15 +1,10 @@
 html {
-    background: #232526;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #232526,#414345 );  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom,  #232526,#414345 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: #000000;  
     font-family: Simplifica;
 }
 
 .homehtml {
-    background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #000000,#434343);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #000000,#434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #000000;  
 }
 
 .card {
@@ -82,8 +77,20 @@ button.icon-bar:hover, a:hover {
    
 }
 
+button {
+        border:0;
+        display: inline-block;
+        padding: 8px;
+        text-align: center;
+        background-color:transparent;
+        cursor: pointer;
+        width: auto;
+        text-shadow: 1px 1px 1px #000000;
+    
+        
+    }
 
-button.homepage {
+a.homepage {
     border:0;
     position:relative;
     left: 500px;
@@ -99,14 +106,14 @@ button.homepage {
     
 }
 
-button.homepage:hover, a:hover {
+a.homepage:hover, a:hover {
     color:#103D2A;
     background:transparent;
      
 }
 
 svg {
-    fill:#103D2A, 1px 1px 1px #000000;
+    /* fill:#103D2A, 1px 1px 1px #000000; */
     text-shadow: 1px 1px 1px #000000;
 }
 svg :hover {
@@ -162,11 +169,7 @@ p {
     float:left;
     display: block;
     padding: 20px 10px 10px 5px;
-    border: 0;
-    border-color:#232526;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    /* text-align: center; */
+    /* background-color: #232526; */
 }
 
 
@@ -194,6 +197,7 @@ input {
     border:solid;
     border-color: #232526;
     color: #582a18;
+    font-size:50px;
     position: relative;
     /* left: 200px; */
 }
@@ -232,6 +236,59 @@ input.registerbutton {
     font-size: 20px;
     letter-spacing: 15px;
 }
+
+label.requestencouragement {
+    font: Simplifica;
+    font-size: 50px;
+    letter-spacing: 15px;
+    text-align: center;
+    color: #636363;
+    vertical-align: center;
+    /* position: relative;    */
+   
+}
+
+input.requestendorsement {
+    width: 500px; /* Set a specific width */
+    vertical-align: center;
+    text-align: center;
+    position: sticky;
+    float:center; 
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    border-color:#131715;  /* fallback for old browsers */
+    background: #000000;
+    color:#232526;
+    font: Capsuula;
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+
+input.requestendorsement:hover {
+    width: 500px; /* Set a specific width */
+    vertical-align: center;
+    text-align: center;
+    position: sticky;
+    float:center; 
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    border-color:#172a22;  /* fallback for old browsers */
+    background: #000000;
+    color:#172a22;
+    font: Capsuula;
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+
+h2 {
+
+    font: Simplifica;
+    color:#2a2c2b;
+    font-size: 40px;
+    letter-spacing: 15px;
+    text-align:center;
+    text-shadow: 2px 2px 2px #000000;
+
 
 .icon {
     background-image: url('reddit.jpg');

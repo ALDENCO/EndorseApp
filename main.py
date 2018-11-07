@@ -89,7 +89,7 @@ def logged_in_user_profile(user_id):
     user_id = session['user_id']
     user=User.query.get(user_id)
     advocates = user.advocates
-    return render_template('profile.html/<user_id>', advocates = advocates, user = user)
+    return redirect("/profile/<user_id>", advocates = advocates, user = user, user_id = user_id)
 
 
 @app.route('/profile/<user_id>', methods = ['GET'])

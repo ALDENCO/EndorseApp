@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<link rel="reddit" type="icon/gif" href="static/reddit.jpg">
 
 {% for user in users %}
 {% for advocate in advocates %}
@@ -11,8 +12,8 @@
   <p>{{user.email}}</p>
   <p>{{user.first_name}} {{user.last_name}}</p>
   <p>{{user.age}}</p>
-  <span class='icon'></span>
   
+  <a href="www.reddit.com" id="reddit"> </a> 
   <a href="#"><i class="fa fa-facebook"></i></a> 
   
   <a href = {{user.email}}><button value = ?xml version="1.0" encoding="utf-8" class="contact"> </a>
