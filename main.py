@@ -81,16 +81,27 @@ def register():
         db.session.commit()
         session['user'] = user.email
         return redirect("/profile")
-    # else:
-    #     return render_template('register.html')
+    else:
+        return render_template('register.html')
+
 @app.route('/profile', methods = ['GET'])
-def profile(): #if logged in, the profile should display the information stored in the user table of the database, if not logged in redirect them to login 
-    owner = request.args.get('user')
-    if owner:
-        advocates = Advocate.query.filter_by(owner_id=owner).all()
-    users = User.query.all()
-    advocates = Advocate.query.all()
-    return render_template('profile.html', advocates = advocates, users = users, owner = owner)
+def logged_in_user_profile(user_id):
+    user_id = session['user_id']
+    user=User.query.get(user_id)
+    advocates = user.advocates
+    return render_template('profile.html/<user_id>', advocates = advocates, user = user)
+
+
+@app.route('/profile/<user_id>', methods = ['GET'])
+def logged_out_user_profile(user_id=None):
+    if user_id is None and not_logged_in:
+        redirect('/profile')
+    elif user_id is not None:
+        user_id = session['user_id']
+    #user_id is guaranteed to be here
+    user=User.query.get(user_id)
+    advocates = user.advocates
+    return render_template('profile.html', advocates = advocates, user = user)
 
 @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
