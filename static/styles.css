@@ -4,14 +4,14 @@ html {
 }
 
 
-/* .homehtml {
+.homehtml {
     background: #000000;  
-} */
-/* body {
-    background: grey;
+}
+body {
+    background:#000000;
     font-family: Simplifica;
     color: #103d2a;
-} */
+}
 
 .card {
     display: block;
@@ -27,7 +27,7 @@ html {
     font-family: Simplifica;
     letter-spacing: 7px;
     color:#103d2a;
-    background-color:#131715;
+    background-color:white;
 }
 
 .title {
@@ -94,8 +94,6 @@ button {
         cursor: pointer;
         width: auto;
         text-shadow: 1px 1px 1px #000000;
-    
-        
     }
 
 a.homepage {
@@ -110,8 +108,6 @@ a.homepage {
     cursor: pointer;
     width: auto;
     text-shadow: 1px 1px 1px #000000;
-
-    
 }
 
 a.homepage:hover, a:hover {
@@ -225,8 +221,6 @@ label {
 p.input {
     text-align: justify;
     position: relative;
-    
-    
 }
 
 input.registerbutton {
