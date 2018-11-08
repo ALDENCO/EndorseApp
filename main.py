@@ -84,12 +84,18 @@ def register():
     else:
         return render_template('register.html')
 
-@app.route('/profile', methods = ['GET'])
+@app.route('/profile/<user_id>', methods = ['GET'])
 def logged_in_user_profile(user_id):
-    user_id = session['user_id']
-    user=User.query.get(user_id)
-    advocates = user.advocates
-    return redirect("/profile/<user_id>", advocates = advocates, user = user, user_id = user_id)
+    owner = request.args.get('user')
+    if owner:
+        user = User.query.filter_by(owner_id=owner).first()
+    if user_id is not None:
+        user_id = session['user_id']
+        user=User.query.get(user_id)
+        advocates = user.advocates
+
+        # advocates = Advocate.query.get(user_id)
+    return render_template('profile.html', user_id = user_id, advocates = advocates, user = user, owner=owner)
 
 
 @app.route('/profile/<user_id>', methods = ['GET'])
@@ -101,6 +107,7 @@ def logged_out_user_profile(user_id=None):
     #user_id is guaranteed to be here
     user=User.query.get(user_id)
     advocates = user.advocates
+    session['user'] = user.email
     return render_template('profile.html', advocates = advocates, user = user)
 
 @app.route('/request_endorsement', methods = ['GET'])
