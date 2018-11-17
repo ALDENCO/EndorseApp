@@ -43,7 +43,7 @@ def login():
                 flash('welcome back, '+user.email)
                 return redirect("/profile")
         flash('bad username or password')
-        return redirect("/login")
+        return redirect("/profile")
 def is_email(string):
     atsign_index = string.find('@')
     atsign_present = atsign_index >= 0
@@ -97,9 +97,9 @@ def logged_in_user_profile():
 
 @app.route('/profile/<user_id>', methods = ['GET'])
 def specific_users_profile(user_id):
-    user=User.query.get(user_id)
+    user = User.query.get(user_id)
     advocates = user.advocates
-    return render_template('profile.html', advocates = advocates, user = user)
+    return render_template('profile.html', advocates = advocates, users = [user])
 
 @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
@@ -172,6 +172,24 @@ def endorsed(concealed_advocate_id):
     user = advocate.owner
    
     return render_template('endorsed.html', advocate = advocate, user = user)
+
+# @app.route('/profile/<user_id>', methods = ['GET'])
+# def profile_received_endorsement(user_id):
+#     # session['user_id'] = user.id
+#     user=User.query.get(user_id)
+#     # user = User.query.filter_by(id = user_id).first()
+#     advocates = user.advocates
+#     return render_template('profile.html', user = user, advocates = advocates)
+    
+#     # user_id = session['user_id']
+#     # session['advocate'] = advocate.email
+#     # advocate = Advocate.query.filter_by(id=advocate_id).first()
+#     # user = advocate.owner
+#     # # user_id = session['user_id']
+#     # user = User.query.first()
+#     # advocate = Advocate(owner_id = user_id)
+
+#     # return render_template('profile.html', advocate = advocate, user = user)
 
 @app.route("/logout", methods=['POST'])
 def logout():

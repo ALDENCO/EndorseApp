@@ -17,7 +17,7 @@ body {
     display: block;
     margin-top: 0px;
     margin-bottom: 0px; 
-    box-shadow: 0 4px 8px 0 white;
+    box-shadow: 0 4px 8px 0 #000000;
     max-width: 400px;
     margin-left:auto;
     margin-right: auto;
@@ -27,7 +27,7 @@ body {
     font-family: Simplifica;
     letter-spacing: 7px;
     color:#103d2a;
-    background-color:white;
+    background-color:#131715;
 }
 
 .title {
@@ -137,8 +137,8 @@ p {
     display: block;
     margin-top: 0px;
     margin-bottom: 0px; 
-    box-shadow: 4px 4px 4px 4px #232526;
-    max-width: 50%;
+    box-shadow: 0 4px 8px 0 #000000;
+    max-width: 400px;
     margin-left:auto;
     margin-right: auto;
     padding: 10px;
@@ -149,22 +149,26 @@ p {
     
 }
 
-.card2 p {
-    color:#582A18;
-    text-align: justify;
+.card2 img {
+    width:400px;
 }
 
-.card2 p.quote {
-    color:#636363;
-    font-size: 25px;
-    font-family:Raleway;
+
+.card2 p {
+    padding:10px;
+    color:#582A18;
+    text-shadow: 1px 1px 1px #000000;
     text-align: center;
 }
 
+.card2 p.quote {
+    padding:10px;
+    color:#636363;
+    font-size: 25px;
+    font-family: Raleway;
+    text-align: center;
+}
 
-
-
-/* body {margin:0} */
 
 .icon-bar {
     width: 100px; /* Set a specific width */
@@ -188,10 +192,6 @@ p {
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 2px #000000;
 }
-/* form {
-    text-align: center;
-    position: relative;
-} */
 
 input {
     width: 35%;
@@ -309,14 +309,14 @@ input.login {
 }
 
 input.login:hover {
-    width: 150px; /* Set a specific width */
+    width: 150px; 
     vertical-align: center;
     text-align: center;
     position: sticky;
     float:center; 
     padding: 10px 10px 10px 10px;
     border: solid;
-    border-color:#172a22;  /* fallback for old browsers */
+    border-color:#172a22;  
     background: #000000;
     color:#172a22;
     font: Capsuula;

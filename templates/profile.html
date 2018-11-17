@@ -28,9 +28,10 @@
 </div>
 
 <div class = "card2">
-    <p> {{advocate.email}} suggested the below photo of {{user.first_name}} {{user.last_name}} and provided the following text:</p>
+    <p> {{advocate.email}} suggested the below photo and text for:</p>
+    <p>{{user.first_name}} {{user.last_name}}</p>
   <div class ="img2">
-    <img src="{{advocate.picture_url}}" style="width:30%" center>
+    <img src="{{advocate.picture_url}}">
   </div>
   <br>
   <p class = "quote">"{{advocate.endorsement_text}}"</p>
