@@ -86,14 +86,14 @@ button.icon-bar:hover, a:hover {
 }
 
 button {
-        border:0;
-        display: inline-block;
-        padding: 8px;
-        text-align: center;
-        background-color:transparent;
-        cursor: pointer;
-        width: auto;
-        text-shadow: 1px 1px 1px #000000;
+    border:0;
+    display: inline-block;
+    padding: 8px;
+    text-align: center;
+    background-color:transparent;
+    cursor: pointer;
+    width: auto;
+    text-shadow: 1px 1px 1px #000000;
     }
 
 a.homepage {
@@ -324,9 +324,31 @@ input.login:hover {
     letter-spacing: 10px;
 }
 
-/* .icon {
-    background-image: url('reddit.jpg');
-    height: 20px;
-    width: 20px;
-    display: block;
-    /* Other styles here */
+.icon-bar2 {
+    width: 100%; /* Set a specific width */
+    /* margin: auto; */
+    /* position: relative; */
+    float:center;
+    /* display: block; */
+    /* padding: 10px 10px 10px 5px; */
+    /* background-color: #232526; */
+    overflow: auto;
+}
+
+button.icon-bar2 {
+    width:15.5%;
+    padding: 5px 5px 5px 5px;
+    border: 0;
+    border-color:#232526;  /* fallback for old browsers */
+   /* background: transparent; */
+   opacity:.5;
+
+    
+}
+
+button.icon-bar2:hover, a:hover {
+    opacity:.99;
+    transition: all 0.25s ease;
+
+   
+}
