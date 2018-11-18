@@ -86,11 +86,10 @@ def register():
 
 @app.route('/profile', methods = ['GET'])
 def logged_in_user_profile():
-    if 'user_id' not in session:
-        #user is logged in, send them somewhere else
+    if 'user_id' not in session: #user is logged in, send them somewhere else
         return redirect('/login')
     user_id = session['user_id']
-    user = User.query.get(user_id)# get the user from the database
+    user = User.query.get(user_id) # get the user from the database
     advocates = user.advocates
     return render_template('profile.html', user=user, advocates = advocates)
 
@@ -116,7 +115,6 @@ def send_request_endorsement_form():
     advocate = Advocate(email = email, owner_id = user_id)
     db.session.add(advocate)
     db.session.commit()
-
     #import pdb; pdb.set_trace()
     concealed_adv_id = SafeSerializer.dumps(advocate.id)
   
@@ -131,8 +129,6 @@ def send_request_endorsement_form():
     #print(response)
     resp = response.json()
     return redirect ('/request_endorsement')
-    
-#(f"To:{advocate.email} Subject: {user.first_name} {user.last_name} is requesting you endorse them")
 
 @app.route('/endorse/<concealed_advocate_id>', methods=['GET'])
 def now_view_empty_endorsement_form(concealed_advocate_id):
@@ -170,26 +166,7 @@ def endorsed(concealed_advocate_id):
     advocate_id = SafeSerializer.loads(concealed_advocate_id)
     advocate = Advocate.query.filter_by(id=advocate_id).first()
     user = advocate.owner
-   
     return render_template('endorsed.html', advocate = advocate, user = user)
-
-# @app.route('/profile/<user_id>', methods = ['GET'])
-# def profile_received_endorsement(user_id):
-#     # session['user_id'] = user.id
-#     user=User.query.get(user_id)
-#     # user = User.query.filter_by(id = user_id).first()
-#     advocates = user.advocates
-#     return render_template('profile.html', user = user, advocates = advocates)
-    
-#     # user_id = session['user_id']
-#     # session['advocate'] = advocate.email
-#     # advocate = Advocate.query.filter_by(id=advocate_id).first()
-#     # user = advocate.owner
-#     # # user_id = session['user_id']
-#     # user = User.query.first()
-#     # advocate = Advocate(owner_id = user_id)
-
-#     # return render_template('profile.html', advocate = advocate, user = user)
 
 @app.route("/logout", methods=['POST'])
 def logout():

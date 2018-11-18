@@ -29,6 +29,4 @@ class Advocate(db.Model):
         return '<Advocate {}>' .format(self.email)
 
 
-#Advocate(
- #   advo_email='vince@devetry.com',
-  #  owner_id=4
+

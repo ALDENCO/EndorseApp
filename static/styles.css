@@ -67,13 +67,13 @@ button.contact:hover, a:hover {
 }
 
 button.icon-bar {
-    width: 100px; /* Set a specific width */
+    width: 100px; 
     vertical-align: center;
     /* position: sticky;
     float:left; */
     padding: 10px 10px 10px 10px;
     border: 0;
-    border-color:#232526;  /* fallback for old browsers */
+    border-color:#232526;  
    background: transparent;
 
     
@@ -121,7 +121,7 @@ svg {
     text-shadow: 1px 1px 1px #000000;
 }
 svg :hover {
-    transition: all 0.25s ease; /*Add transition for hover effects */
+    transition: all 0.25s ease; 
     fill:chartreuse;
 }
 
@@ -171,7 +171,7 @@ p {
 
 
 .icon-bar {
-    width: 100px; /* Set a specific width */
+    width: 100px; 
     vertical-align: auto;
     position: relative;
     float:left;
@@ -224,14 +224,14 @@ p.input {
 }
 
 input.registerbutton {
-    width: 300px; /* Set a specific width */
+    width: 300px; 
     vertical-align: center;
     text-align: center;
     position: sticky;
     float:center; 
     padding: 10px 10px 10px 10px;
     border: solid;
-    border-color:#232526;  /* fallback for old browsers */
+    border-color:#232526;  
     background: #232526;
     color:#636363;
     font: Capsuula;
@@ -325,30 +325,26 @@ input.login:hover {
 }
 
 .icon-bar2 {
-    width: 100%; /* Set a specific width */
+    width: 100%; 
     /* margin: auto; */
     /* position: relative; */
     float:center;
     /* display: block; */
     /* padding: 10px 10px 10px 5px; */
     /* background-color: #232526; */
-    overflow: auto;
+   
 }
 
 button.icon-bar2 {
     width:15.5%;
     padding: 5px 5px 5px 5px;
     border: 0;
-    border-color:#232526;  /* fallback for old browsers */
+    border-color:#232526;  
    /* background: transparent; */
-   opacity:.5;
-
-    
+   opacity:.5; 
 }
 
 button.icon-bar2:hover, a:hover {
     opacity:.99;
-    transition: all 0.25s ease;
-
-   
+    transition: all 0.25s ease; 
 }
