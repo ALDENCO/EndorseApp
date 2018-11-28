@@ -27,33 +27,6 @@ def index():
     #     return redirect('somewheree else')
     # return redirect('/login')
 
-
-@app.route('/login', methods = ['GET','POST'])
-def login():
-    if request.method == 'GET':
-        return render_template('login.html')
-    elif request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        users = User.query.filter_by(email=email)
-        if users.count() == 1:
-            user = users.first()
-            if password == user.password:
-                session['user_id'] = user.id
-                flash('welcome back, '+user.email)
-                return redirect("/profile")
-        flash('bad username or password')
-        return redirect("/profile")
-def is_email(string):
-    atsign_index = string.find('@')
-    atsign_present = atsign_index >= 0
-    if not atsign_present:
-        return False
-    else:
-        domain_dot_index = string.find('.', atsign_index)
-        domain_dot_present = domain_dot_index >= 0
-        return domain_dot_present
-
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'GET': #the register route must first get the register html template
@@ -80,14 +53,43 @@ def register():
         db.session.add(user)
         db.session.commit()
         session['user'] = user.email
-        return redirect("/profile")
+        return render_template('login.html', user=user)
+    # else:
+    #     return redirect("/register")
+
+
+@app.route('/login', methods = ['GET','POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    elif request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        users = User.query.filter_by(email=email)
+        if users.count() == 1:
+            user = users.first()
+            if password == user.password:
+                session['user_id'] = user.id
+                flash('welcome back, '+user.email)
+                return render_template('profile.html', user = [user])
+        flash('bad username or password')
+        return render_template("/register")
+    return render_template("/profile/<user_id>")
+        
+def is_email(string):
+    atsign_index = string.find('@')
+    atsign_present = atsign_index >= 0
+    if not atsign_present:
+        return False
     else:
-        return render_template('register.html')
+        domain_dot_index = string.find('.', atsign_index)
+        domain_dot_present = domain_dot_index >= 0
+        return domain_dot_present
 
 @app.route('/profile', methods = ['GET'])
 def logged_in_user_profile():
     if 'user_id' not in session: #user is logged in, send them somewhere else
-        return redirect('/login')
+        return redirect("login.html")
     user_id = session['user_id']
     user = User.query.get(user_id) # get the user from the database
     advocates = user.advocates
@@ -171,7 +173,7 @@ def endorsed(concealed_advocate_id):
 @app.route("/logout", methods=['POST'])
 def logout():
     del session['user']
-    return redirect("/")
+    return redirect("/login")
 
 
 if __name__ == "__main__":
