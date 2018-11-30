@@ -53,7 +53,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         session['user'] = user.email
-        return render_template('login.html', user=user)
+        return render_template('login.html')
     # else:
     #     return redirect("/register")
 
@@ -71,10 +71,10 @@ def login():
             if password == user.password:
                 session['user_id'] = user.id
                 flash('welcome back, '+user.email)
-                return render_template('profile.html', user = [user])
+                return redirect(f'profile/{user.id}')
         flash('bad username or password')
         return render_template("/register")
-    return render_template("/profile/<user_id>")
+   
         
 def is_email(string):
     atsign_index = string.find('@')
@@ -130,7 +130,7 @@ def send_request_endorsement_form():
     response = requests.post(url , auth = auth, data = data)
     #print(response)
     resp = response.json()
-    return redirect ('/request_endorsement')
+    return redirect(f'profile/{user.id}')
 
 @app.route('/endorse/<concealed_advocate_id>', methods=['GET'])
 def now_view_empty_endorsement_form(concealed_advocate_id):
@@ -157,7 +157,7 @@ def submit_endorsement(concealed_advocate_id):
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{user.email}"],
             "subject": "Hello",
-            "text": f"{advocate.email} has endorsed you! http://localhost:5000/profile"}
+            "text": f"{advocate.email} has endorsed you! http://localhost:5000/profile/{user.id}"}
     response = requests.post(url , auth = auth, data = data)
     #print(response)
     resp = response.json()

@@ -3,20 +3,30 @@
 {% block content %}
 
 {% for user in users %}
-<h2>Endorse {{user.first_name}} {{user.last_name}}</h2>
+<!-- <h2>Endorse {{user.first_name}} {{user.last_name}}</h2> -->
 {% endfor %}
 
 <form action="/endorse/{{concealed_advocate_id}}" method="post">
-  <p><label>Provide your endorsement here: <input type="text" name="endorsement_text"/></label></p>
-  <p><label> Provide image url <input type="text" name="picture_url"></label></p>
-  <p><input type="submit" value="Endorse"/></p>
+  <p><label class="submitendorsement">Provide your endorsement here:</label></p>
+  <input type="text" class ="submitendorsement" name="endorsement_text"/>
+  <p><label class="submitendorsement">Provide image url:</label></p>
+  <p><a href="https://postimages.org/web">free image url hosting @ post images</a></p>
+  <input type="text" class ="submitendorsement" name="picture_url">
+  <p><input class="submitendorsementbutton" type="submit" value="Endorse"/></p>
 </form>
+<br>
 
-
+<div class="icon-bar3">
+        <a href="https://www.instagram.com"><button class = "icon-bar3"><img src="/static/instagram.ico" class = "icon-bar3"></a>
+          <a href="https://www.spotify.com"><button class = "icon-bar3"><img src="/static/spotify.ico" class = "icon-bar3"></a> 
+            <a href="https://www.facebook.com"><button class = "icon-bar3"><img src="/static/fbook.ico" class = "icon-bar3"></a> 
+        
+    </div>
+  
 
 
     
-  
+
           
 {% endblock %}
 

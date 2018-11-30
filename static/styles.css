@@ -223,20 +223,37 @@ p.input {
     position: relative;
 }
 
+
 input.registerbutton {
-    width: 300px; 
+    width: 300px; /* Set a specific width */
     vertical-align: center;
     text-align: center;
     position: sticky;
     float:center; 
     padding: 10px 10px 10px 10px;
     border: solid;
-    border-color:#232526;  
-    background: #232526;
-    color:#636363;
+    border-color:#131715;  /* fallback for old browsers */
+    background: #000000;
+    color:#232526;
     font: Capsuula;
     font-size: 20px;
-    letter-spacing: 15px;
+    letter-spacing: 10px;
+}
+
+input.registerbutton:hover {
+    width: 300px; /* Set a specific width */
+    vertical-align: center;
+    text-align: center;
+    position: sticky;
+    float:center; 
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    border-color:#172a22;  /* fallback for old browsers */
+    background: #000000;
+    color:#172a22;
+    font: Capsuula;
+    font-size: 20px;
+    letter-spacing: 10px;
 }
 
 label.requestencouragement {
@@ -283,7 +300,6 @@ input.requestendorsement:hover {
 }
 
 h2 {
-
     font: Simplifica;
     color:#2a2c2b;
     font-size: 40px;
@@ -330,7 +346,7 @@ input.login:hover {
     /* position: relative; */
     float:center;
     /* display: block; */
-    /* padding: 10px 10px 10px 5px; */
+    padding: 10px 10px 10px 5px;
     /* background-color: #232526; */
    
 }
@@ -340,11 +356,96 @@ button.icon-bar2 {
     padding: 5px 5px 5px 5px;
     border: 0;
     border-color:#232526;  
+    float: center;
    /* background: transparent; */
    opacity:.5; 
 }
 
 button.icon-bar2:hover, a:hover {
+    opacity:.99;
+    transition: all 0.25s ease; 
+}
+
+label.submitendorsement {
+    font: Simplifica;
+    font-size: 50px;
+    letter-spacing: 15px;
+    text-align: center;
+    color: #636363;
+    vertical-align: center;
+    /* position: relative;    */   
+}
+
+input.submitendorsement {
+    background-color:#2a2c2b;
+    border:solid;
+    border-color: #232526;
+    color: #582a18;
+    font-size:50px;
+    position: relative;
+    left: 500px; 
+    resize: both;
+    overflow: auto;
+}
+
+input.submitendorsementbutton {
+    width: 300px; /* Set a specific width */
+    vertical-align: center;
+    text-align: center;
+    position: sticky;
+    float:center; 
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    border-color:#131715;  /* fallback for old browsers */
+    background: #000000;
+    color:#232526;
+    font: Capsuula;
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+
+
+input.submitendorsementbutton:hover {
+    width: 300px; /* Set a specific width */
+    vertical-align: center;
+    text-align: center;
+    position: sticky;
+    float:center; 
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    border-color:#172a22;  /* fallback for old browsers */
+    background: #000000;
+    color:#172a22;
+    font: Capsuula;
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+
+
+
+.icon-bar3 {
+    position:relative;
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    box-shadow: 0 4px 8px 0 #000000;
+    width: 50%;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+}
+
+button.icon-bar3 {
+    width:15.5%;
+    padding: 5px 5px 5px 5px;
+    border: 0;
+    border-color:#232526;  
+    /* position: relative; */
+    /* display: block; */
+   /* background: transparent; */
+   opacity:.5; 
+}
+
+button.icon-bar3:hover, a:hover {
     opacity:.99;
     transition: all 0.25s ease; 
 }
