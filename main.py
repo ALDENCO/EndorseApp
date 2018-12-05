@@ -193,7 +193,6 @@ def send_user_invite_form():
             "subject": "Hello",
             "text": f"{user.first_name} {user.last_name} wants you to join their social circle! http://localhost:5000/register"}
     response = requests.post(url , auth = auth, data = data)
-    #print(response)
     resp = response.json()
     return redirect(f'profile/{user.id}')
 
