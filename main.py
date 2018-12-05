@@ -178,25 +178,18 @@ def endorsed(concealed_advocate_id):
 def view_empty_user_invite_form():
     return render_template('invite.html')
 
-SafeSerializer = URLSafeSerializer('advocate_id')
-
-
 @app.route('/invite', methods = ['POST'])
 def send_user_invite_form():
     email = request.form['email']
     user_id = session['user_id']
     user = User.query.first()
-    advocate = Advocate(email = email, owner_id = user_id)
-    db.session.add(advocate)
-    db.session.commit()
     #import pdb; pdb.set_trace()
-    concealed_adv_id = SafeSerializer.dumps(advocate.id)
   
 
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
     auth=("api", os.getenv('api_key'))
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
-            "to": [f"{advocate.email}"],
+            "to": [f"{email}"],
             "subject": "Hello",
             "text": f"{user.first_name} {user.last_name} wants you to join their social circle! http://localhost:5000/register"}
     response = requests.post(url , auth = auth, data = data)
@@ -204,10 +197,9 @@ def send_user_invite_form():
     resp = response.json()
     return redirect(f'profile/{user.id}')
 
-@app.route('/invite/<concealed_advocate_id>', methods=['GET'])
-def now_view_empty_user_invite_form(concealed_advocate_id):
-    advocate_id = SafeSerializer.loads(concealed_advocate_id)
-    return render_template('invite.html', advocate_id = advocate_id, concealed_advocate_id = concealed_advocate_id)
+@app.route('/invite', methods=['GET'])
+def now_view_empty_user_invite_form():
+    return render_template('invite.html')
 
 # @app.route('/endorsed/<concealed_advocate_id>', methods = ['GET'])
 # def endorsed(concealed_advocate_id):
