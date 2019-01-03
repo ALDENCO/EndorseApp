@@ -10,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgres://fq
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'secret key'
+app.config['API_KEY'] = 'api'
 
 db = SQLAlchemy(app)
 
