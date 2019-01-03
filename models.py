@@ -10,7 +10,7 @@ class User(db.Model):
     password = db.Column(db.String(120))
     advocates = db.relationship('Advocate',backref = 'owner', lazy=True) #this tells the database that there is a relationship between the two tables Advocate & User
 
-    #Brian said to get rid of the def inits
+
 
     def __repr__(self):     #repr says that self be called where it will be returned with User as a placeholder of self.email
         return '<User {}>'.format(self.email)
