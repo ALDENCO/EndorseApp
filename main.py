@@ -125,7 +125,8 @@ def send_request_endorsement_form():
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{advocate.email}"],
             "subject": "Hello",
-            "text": f"{user.first_name} {user.last_name} is requesting your endorsement! http://localhost:5000/endorse/{concealed_adv_id}"}
+            # "text": f"{user.first_name} {user.last_name} is requesting your endorsement! http://localhost:5000/endorse/{concealed_adv_id}"}
+            "text": f"{user.first_name} {user.last_name} is requesting your endorsement! http://ec2-54-204-14-96.compute-1.amazonaws.com/endorse/{concealed_adv_id}"}
     response = requests.post(url , auth = auth, data = data)
     #print(response)
     resp = response.json()
