@@ -152,7 +152,7 @@ def submit_endorsement(concealed_advocate_id):
     db.session.commit()
     session['advocate'] = advocate.email
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    auth=("api", os.getenv('api_key'))
+    auth=("api", os.getenv('API_KEY'))
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{user.email}"],
             "subject": "Hello",
@@ -186,7 +186,7 @@ def send_user_invite_form():
   
 
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    auth=("api", os.getenv('api_key'))
+    auth=("api", os.getenv('API_KEY'))
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{email}"],
             "subject": "Hello",
