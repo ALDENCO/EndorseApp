@@ -121,7 +121,7 @@ def send_request_endorsement_form():
   
 
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    auth=("api", os.getenv('API_KEY'))
+    auth=("api", os.getenv('api'))
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{advocate.email}"],
             "subject": "Hello",
