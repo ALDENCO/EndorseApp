@@ -156,7 +156,7 @@ def submit_endorsement(concealed_advocate_id):
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{user.email}"],
             "subject": "Hello",
-            "text": f"{advocate.email} has endorsed you! http://localhost:5000/profile/{user.id}"}
+            "text": f"{advocate.email} has endorsed you! https://encourageapp.herokuapp.com/profile/{user.id}"}
     response = requests.post(url , auth = auth, data = data)
     #print(response)
     resp = response.json()
@@ -186,11 +186,11 @@ def send_user_invite_form():
   
 
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    auth=("api", os.getenv('API_KEY'))
+    auth=("api", os.getenv('api'))
     data={"from": "Alex Myers <mailgun@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org>",
             "to": [f"{email}"],
             "subject": "Hello",
-            "text": f"{user.first_name} {user.last_name} wants you to join their social circle! http://localhost:5000/register"}
+            "text": f"{user.first_name} {user.last_name} wants you to join their social circle! https://encourageapp.herokuapp.com/register"}
     response = requests.post(url , auth = auth, data = data)
     resp = response.json()
     return redirect(f'profile/{user.id}')
