@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<p>
+    You've successfully endorsed <strong>{{user.first_name}} {{user.last_name}}</strong>.
+</p>
+
+<p> {{advocate.endorsement_text}}</p>
+<img src="{{advocate.picture_url}}" style="width:30%">
+
+{% endblock %}
+
+
+
+
+
+
+<!-- endorse will GET email and endorsement_text from Advocate database and display in a message "Advo_email endorsed you"-->
