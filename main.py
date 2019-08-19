@@ -195,9 +195,9 @@ def send_user_invite_form():
     resp = response.json()
     return redirect(f'profile/{user.id}')
 
-@app.route('/invite', methods=['GET'])
-def now_view_empty_user_invite_form():
-    return render_template('invite.html')
+# @app.route('/invite', methods=['GET'])
+# def now_view_empty_user_invite_form():
+#     return render_template('invite.html')
 
 # @app.route('/endorsed/<concealed_advocate_id>', methods = ['GET'])
 # def endorsed(concealed_advocate_id):
