@@ -1,20 +1,26 @@
-{% extends "base.html" %}
-
-{% block content %}
-
 <!DOCTYPE html>
 <html>
-<body>
-
-<h2>Request encouragement from a friend:</h2>
-
-<form action="/request_endorsement" method="post">
-  <p><label  class="requestencouragement">Email<input type="text" name="email"/></label></p>
-  <p><input class="requestendorsement" type="submit" value="Request Encouragement"/></p>
-</form>
-
-
-</body>
+   <body>
+      {% extends "base.html" %}
+      {% block content %}
+      <div class="container-fluid">
+      <!-- Control the column width, and how they should appear on different devices -->
+      <div class="row">
+         <div class="col"></div>
+         <div class="col-6">
+            <h1 class="display-1" style="color:red">Encourage</h1>
+            <h2>Request encouragement from a friend:</h2>
+            <form action="/request_endorsement" method="post">
+               <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email">
+                  <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Request Encouragement</button>
+            </form>
+            </div>
+            <div class="col"></div>
+         </div>
+      </div>
+      {% endblock %}
+   </body>
 </html>
 
-{% endblock %}

@@ -18,9 +18,9 @@ def index():
     if owner:
         advocates = Advocate.query.filter_by(owner_id=owner).all()
   
-    users = User.query.all()
+    user = User.query.all()
     advocates = Advocate.query.all()
-    return render_template('index.html', advocates = advocates, users = users, owner = owner)
+    return render_template('index.html', advocates = advocates, user = user, owner = owner)
     #return render_template('login.html')
     # if user_is_logged_in():
     #     return redirect('somewheree else')
@@ -38,16 +38,16 @@ def register():
         password = request.form['password']
         verify = request.form['verify']
         owner = request.args.get('user')
-        if not is_email(email):
-            flash('zoiks! "' + email + '" does not seem like an email address')
-            return redirect('/register')
-        #email_db_count = User.query.filter_by(email=email).count()
-       # if email_db_count > 0:
-            #flash('yikes! "' + email + '" is already taken and password reminders are not implemented')
-            #return redirect('/register')
-        if password != verify:
-            flash('passwords did not match')
-            return redirect('/register')
+    #     if not is_email(email):
+    #         flash('zoiks! "' + email + '" does not seem like an email address')
+    #         return redirect('/register')
+    #     #email_db_count = User.query.filter_by(email=email).count()
+    #    # if email_db_count > 0:
+    #         #flash('yikes! "' + email + '" is already taken and password reminders are not implemented')
+    #         #return redirect('/register')
+    #     if password != verify:
+    #         flash('passwords did not match')
+    #         return redirect('/register')
         user = User(email = email, first_name = first_name, last_name = last_name, age = age, password = password)
         db.session.add(user)
         db.session.commit()
@@ -59,20 +59,27 @@ def register():
 
 @app.route('/login', methods = ['GET','POST'])
 def login():
+    print('start of login view')
     if request.method == 'GET':
         return render_template('login.html')
     elif request.method == 'POST':
-        email = request.form['email']
+        user_id = request.args.get('user_id')
+        print(session)
+        print('before email test')
+        print(user_id)
+        user_id = session['user_id']
+        user = User.query.get(user_id)
+        print(user_email)
+        email = request.form['user_email']
+        print('after email test')
         password = request.form['password']
         users = User.query.filter_by(email=email)
         if users.count() == 1:
             user = users.first()
             if password == user.password:
                 session['user_id'] = user.id
-                flash('welcome back, '+user.email)
-                return redirect(f'profile/{user.id}')
-        flash('bad username or password')
-        return render_template("/register")
+                return redirect(f'profile/{user.id}', email=email, password=password, user=user, user_id=user_id)
+        
    
         
 def is_email(string):
@@ -92,20 +99,27 @@ def logged_in_user_profile():
     user_id = session['user_id']
     user = User.query.get(user_id) # get the user from the database
     advocates = user.advocates
-    return render_template('profile.html', user=user, advocates = advocates)
+    return render_template('profile.html', user = users, advocates = advocates)
 
 
 @app.route('/profile/<user_id>', methods = ['GET'])
 def specific_users_profile(user_id):
     user = User.query.get(user_id)
-    advocates = user.advocates
-    return render_template('profile.html', advocates = advocates, users = [user])
+    advocate = user.advocates
+    return render_template('profile.html', advocate = advocate, user = [user])
 
 @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
-    return render_template('request_endorsement.html')
+    print(session)
+    user_id = session['user_id']
+    user = User.query.get(user_id)
+    advocates = user.advocates
+    
+    # return render_template('request_endorsement.html', advocate = advocate, user = [user]) #lines 104 to 107 aded 9/3/19
 
 SafeSerializer = URLSafeSerializer('advocate_id')
+
+
 
 
 @app.route('/request_endorsement', methods = ['POST'])
@@ -221,3 +235,4 @@ if __name__ == "__main__":
 
 
    
+			
