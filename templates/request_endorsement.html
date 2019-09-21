@@ -3,19 +3,21 @@
    <body>
       {% extends "base.html" %}
       {% block content %}
-      <div class="container-fluid">
       <!-- Control the column width, and how they should appear on different devices -->
-      <div class="row">
-         <div class="col"></div>
-         <div class="col-6">
-            <h1 class="display-1" style="color:red">Encourage</h1>
-            <h2>Request encouragement from a friend:</h2>
-            <form action="/request_endorsement" method="post">
-               <div class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="email" class="form-control" id="email">
+      <div class="container-fluid">
+         <!-- Control the column width, and how they should appear on different devices -->
+         <div class="row">
+            <div class="col"></div>
+            <div class="col-6">
+               <h1 class="display-1" style="color:red">Encourage</h1>
+               <h2>Request encouragement from a friend:</h2>
+               <form action="/request_endorsement" method="post">
+                  <div class="form-group">
+                     <label for="email">Email:</label>
+                     <input type="email" class="form-control" id="email" name="email">
+                  </div>
                   <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Request Encouragement</button>
-            </form>
+               </form>
             </div>
             <div class="col"></div>
          </div>

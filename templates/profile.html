@@ -5,10 +5,12 @@
       {% block content %}
       {% for advocate in advocate %}
       {% for user in user %}
+      
       <div class="container">
       <div class="jumbotron">
       <div class="clearfix">
-      <img style="float:left" class="pull-left mr-4" src="https://i.ibb.co/1bHWmHy/IMG-1074.jpg">
+      
+      <img style="float:left" class="thumbnail pull-left mr-4" src="{{advocate.picture_url}}">
       <h3>{{user.first_name}} {{user.last_name}}</h3>
       <h3>{{user.age}}</h3>
       <h3>{{user.email}}</h3>

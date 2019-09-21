@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
-
-{% block content %}
-
-
-<p>
-    You've successfully endorsed <strong>{{user.first_name}} {{user.last_name}}</strong>.
-</p>
-
-<p> {{advocate.endorsement_text}}</p>
-<img src="{{advocate.picture_url}}" style="width:30%">
-
-{% endblock %}
-
-
+<html>
+   <body>
+      {% extends "base.html" %}
+      {% block content %}
+      {% for advocate in advocates %}
+      {% for user in user %}
+      {% endfor %}
+      {% endfor %}
+      <div class="container">
+      <div class="jumbotron">
+      <div class="clearfix">
+      <img style="float:left" class="pull-left mr-4" src={{advocates.picture_url}}>
+      <h3>You've successfully endorsed {{user.first_name}} {{user.last_name}}</h3>
+      <br>
+      <h5>{{advocate.email}} suggested this profile photo and description of me:</h5>
+      <br>
+      <h3 style="color:red">{{advocate.endorsement_text}}</h3>
+      {% endblock %}
+   </body>
+</html>
 
 
 
