@@ -1,3 +1,4 @@
+
 from app import db
 
 
@@ -27,6 +28,3 @@ class Advocate(db.Model):
     
     def __repr__(self):
         return '<Advocate {}>' .format(self.email)
-
-
-

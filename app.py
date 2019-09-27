@@ -11,9 +11,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'secret key'
 app.config['api'] = os.getenv('api')
-app.debug = True
+# app.debug = True
 
 toolbar = DebugToolbarExtension(app)
 db = SQLAlchemy(app)
-
-

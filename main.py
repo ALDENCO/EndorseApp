@@ -164,8 +164,8 @@ def send_request_endorsement_form():
   
 
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    # auth = ("api","fea3")
-    auth=("api", os.getenv('api'))
+    auth = ("api","fea3")
+    # auth=("api", os.getenv('api'))
     data={"from": "alex@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org",
             "to": [f"{advocate.email}"],
             "subject": "Hello",
@@ -220,64 +220,106 @@ def endorsed(concealed_advocate_id):
     user = advocate.owner
     return render_template('endorsed.html', advocate = advocate, user = user, advocate_id = advocate_id, concealed_advocate_id = concealed_advocate_id)
 
-@app.route('/invite', methods=['GET'])
-def now_view_empty_invite_form():
-    email = request.form['email']
-    print(email)
-    return render_template('invite.html', email=email)
+@app.route('/invite', methods = ['GET'])
+def view_empty_user_invite_form():
+    return render_template('invite.html')
+
+
 
 @app.route('/invite', methods = ['POST'])
-def send_invite_form():
+def send_user_invite_form():
     email = request.form['email']
-    user_id = User.query(user_id)
+    user = User.query.first()
     #import pdb; pdb.set_trace()
-    
-  
+    # if user in session:
+    #     print(yes)
 
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
     auth = ("api","fea3")
-    # auth=("api", os.getenv('api'))
+    # auth=("api", os.getenv('api_key'))
     data={"from": "alex@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org",
             "to": [f"{email}"],
             "subject": "Hello",
-            "text": f"{user.first_name} {user.last_name} is inviting you to join Encourage! https://encourageapp.herokuapp.com/register"}
-    response = requests.post(url , auth = auth, data = data, email = email)
-    print(response.json)
-    print(user_id)
+            "text": f"{user.first_name} {user.last_name} wants you to join their social circle! http://localhost:5000/register"}
+    response = requests.post(url , auth = auth, data = data)
+    #print(response)
     print(data)
-    print(auth)
-    # print(os.environ)
-
     resp = response.json()
     return redirect(f'profile/{user.id}')
 
-@app.route('/invite', methods=['GET'])
-def new_register():
-    return redirect('/register')
 
-@app.route('/logout')
+
+
+@app.route('/logout', methods=['GET','POST']) 
 def logout():
-    # user_id = session['user_id']
-    # user = User.query.get(user_id)
-   
-    
-    if 'email' in session:  #user is logged in, send them somewhere else
-        session.clear
-        
-    print(session)
-    import pdb; pdb.set_trace()
+    # print(user_id)
+    session.pop('user_id', None)
+    print(session.get('user_id'))
     return redirect('/login')
+
+
+
+# @app.route('/logout', methods=['GET','POST']) # logout route needs to reverse: session['user_id'] = user.id
+# def logout():
+#     if request.method == 'GET':
+#         user = User.query.first()
+#         session['user_id'] = user.id
+#         print(user.id)
+#     elif request.method == 'POST':
+#         print(post)
+#         del session['user.id']
+#         return redirect('/login')
+
+# @app.route('/logout', methods = ['GET'])
+# def logout_start():
+#     # user = User.query.filter_by(email=email).one_or_none()
+#     # # session.keys.pop
+#     # # del session.keys
+#     # # session.keys.clear()
+#     user = User.query.first()
+#     print('GET Block')
+# @app.route('/logout', methods = ['POST'])
+# def logout_end():
+#     print('POST block')
+#     del session['user_id']
+#     return redirect('/login')
+    # del session['user.id']
+    # print(session.keys)
+    # return None
+    # return render_template('login.html')
+    # import pdb; pdb.set_trace()
     
-# @app.route('/profile', methods = ['GET'])
-# def logged_in_user_profile():
-#     if 'user_id' not in session:  #user is logged in, send them somewhere else
-#         print(user_id)
-#         return redirect("login.html")
-#     user_id = session['user_id']
-#     user = User.query.get(user_id) # get the user from the database
-#     advocates = user.advocates
-#     return render_template('profile.html', user = user, advocates = advocates)
+    # session.clear('keys')
+    # import pdb; pdb.set_trace()
+    
+    
+    
+    
+
+#     # session.pop(user)
+#     # session.pop('user')
+#     # session.keys() = None
+#     # user = User.
+#     # del session.keys
+#     # session.clear()
+    
+    
+#     # db.session.clear()
+#     # print(user_id)
+#     # print(user)
+   
+# # import pdb; pdb.set_trace()
+    
+
+# # @app.route('/profile', methods = ['GET'])
+# # def logged_in_user_profile():
+# #     if 'user_id' not in session:  #user is logged in, send them somewhere else
+# #         print(user_id)
+# #         return redirect("login.html")
+# #     user_id = session['user_id']
+# #     user = User.query.get(user_id) # get the user from the database
+# #     advocates = user.advocates
+# #     return render_template('profile.html', user = user, advocates = advocates)
 
 if __name__ == "__main__":
     app.run()
-

@@ -10,7 +10,11 @@ flask = "*"
 sql-alchemy = "*"
 flask-sqlalchemy = "*"
 requests = "*"
-flask-session = "*"
+flask-sql-alchemy = "*"
+itsdangerous = "*"
+flask-debug-toolbar = "*"
+os = "*"
+redirect = "*"
 
 [requires]
 python_version = "3.6"
