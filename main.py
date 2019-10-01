@@ -89,8 +89,8 @@ def login():
     if request.method == 'GET':
         return render_template('login.html')
     elif request.method == 'POST':
-        email = request.form.get['email']
-        password = request.form.get['password']
+        email = request.form.get('email')
+        password = request.form.get('password')
         users = User.query.filter_by(email=email)
         if users.count() == 1:
             user = users.first()
@@ -166,18 +166,11 @@ def send_request_endorsement_form():
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
     auth = ("api","fea3")
     # auth=("api", os.getenv('api'))
-    data={"from": "alex@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org",
+    data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{advocate.email}"],
             "subject": "Hello",
             "text": f"{user.first_name} {user.last_name} is requesting your endorsement! https://encourageapp.herokuapp.com/endorse/{concealed_adv_id}"}
     response = requests.post(url , auth = auth, data = data)
-    print(response.json)
-    print(user_id)
-    print(concealed_adv_id)
-    print(data)
-    print(auth)
-    print(os.environ)
-
     resp = response.json()
     return redirect(f'profile/{user.id}')
 
@@ -193,7 +186,7 @@ def submit_endorsement(concealed_advocate_id):
     endorsement_text = request.form['endorsement_text']
     picture_url = request.form['picture_url']
     
-    
+
     advocate = Advocate.query.get(advocate_id)
     user = advocate.owner
     advocate.endorsement_text = endorsement_text
@@ -204,7 +197,7 @@ def submit_endorsement(concealed_advocate_id):
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
     auth = ("api","fea3")
     # auth=("api", os.getenv('api_key'))
-    data={"from": "alex@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org",
+    data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{user.email}"],
             "subject": "Hello",
             "text": f"{advocate.email} has endorsed you! http://localhost:5000/profile/{user.id}"}
@@ -225,7 +218,6 @@ def view_empty_user_invite_form():
     return render_template('invite.html')
 
 
-
 @app.route('/invite', methods = ['POST'])
 def send_user_invite_form():
     email = request.form['email']
@@ -237,7 +229,7 @@ def send_user_invite_form():
     url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
     auth = ("api","fea3")
     # auth=("api", os.getenv('api_key'))
-    data={"from": "alex@sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org",
+    data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{email}"],
             "subject": "Hello",
             "text": f"{user.first_name} {user.last_name} wants you to join their social circle! http://localhost:5000/register"}
@@ -248,8 +240,6 @@ def send_user_invite_form():
     return redirect(f'profile/{user.id}')
 
 
-
-
 @app.route('/logout', methods=['GET','POST']) 
 def logout():
     # print(user_id)
@@ -257,69 +247,6 @@ def logout():
     print(session.get('user_id'))
     return redirect('/login')
 
-
-
-# @app.route('/logout', methods=['GET','POST']) # logout route needs to reverse: session['user_id'] = user.id
-# def logout():
-#     if request.method == 'GET':
-#         user = User.query.first()
-#         session['user_id'] = user.id
-#         print(user.id)
-#     elif request.method == 'POST':
-#         print(post)
-#         del session['user.id']
-#         return redirect('/login')
-
-# @app.route('/logout', methods = ['GET'])
-# def logout_start():
-#     # user = User.query.filter_by(email=email).one_or_none()
-#     # # session.keys.pop
-#     # # del session.keys
-#     # # session.keys.clear()
-#     user = User.query.first()
-#     print('GET Block')
-# @app.route('/logout', methods = ['POST'])
-# def logout_end():
-#     print('POST block')
-#     del session['user_id']
-#     return redirect('/login')
-    # del session['user.id']
-    # print(session.keys)
-    # return None
-    # return render_template('login.html')
-    # import pdb; pdb.set_trace()
-    
-    # session.clear('keys')
-    # import pdb; pdb.set_trace()
-    
-    
-    
-    
-
-#     # session.pop(user)
-#     # session.pop('user')
-#     # session.keys() = None
-#     # user = User.
-#     # del session.keys
-#     # session.clear()
-    
-    
-#     # db.session.clear()
-#     # print(user_id)
-#     # print(user)
-   
-# # import pdb; pdb.set_trace()
-    
-
-# # @app.route('/profile', methods = ['GET'])
-# # def logged_in_user_profile():
-# #     if 'user_id' not in session:  #user is logged in, send them somewhere else
-# #         print(user_id)
-# #         return redirect("login.html")
-# #     user_id = session['user_id']
-# #     user = User.query.get(user_id) # get the user from the database
-# #     advocates = user.advocates
-# #     return render_template('profile.html', user = user, advocates = advocates)
 
 if __name__ == "__main__":
     app.run()

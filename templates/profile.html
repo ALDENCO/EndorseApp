@@ -5,20 +5,21 @@
       {% block content %}
       {% for advocate in advocate %}
       {% for user in user %}
-      
       <div class="container">
-      <div class="jumbotron">
-      <div class="clearfix">
-      
-      <img style="float:left" class="thumbnail pull-left mr-4" src="{{advocate.picture_url}}">
-      <h3>{{user.first_name}} {{user.last_name}}</h3>
-      <h3>{{user.age}}</h3>
-      <h3>{{user.email}}</h3>
-      <br>
-      <h5>My friend {{advocate.email}} suggested this profile photo and description of me:</h5>
-      <br>
-      <h3 style="color:red">{{advocate.endorsement_text}}</h3>
-      <a href="mailto:{{user.email}}" type="button" class="d-flex align-items-center btn btn-outline-dark btn-lg btn-block">Contact</a>
+         <div class="jumbotron">
+            <div class="clearfix">
+               <img style="float:left" class="thumbnail pull-left mr-4" src="{{advocate.picture_url}}">
+               <h3>{{user.first_name}} {{user.last_name}}</h3>
+               <h3>{{user.age}}</h3>
+               <h3>{{user.email}}</h3>
+               <br>
+               <h5>My friend {{advocate.email}} suggested this profile photo and description of me:</h5>
+               <br>
+               <h3 class="endorsement_text">{{advocate.endorsement_text}}</h3>
+               <a href="mailto:{{user.email}}" type="button" class="btn btn-outline-dark btn-lg btn-block contact">Contact</a>
+            </div>
+         </div>
+      </div>
       {% endfor %}
       {% endfor %}
       {% endblock %}
