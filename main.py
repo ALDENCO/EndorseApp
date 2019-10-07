@@ -5,7 +5,7 @@ from itsdangerous import URLSafeSerializer
 import cgi
 import requests
 import os
-from flask_debugtoolbar import DebugToolbarExtension
+# from flask_debugtoolbar import DebugToolbarExtension
 
 
 @app.route('/home', methods = ['GET'])
@@ -170,7 +170,7 @@ def submit_endorsement(concealed_advocate_id):
     data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{user.email}"],
             "subject": "Hello",
-            "text": f"{advocate.email} has endorsed you! http://localhost:5000/profile/{user.id}"}
+            "text": f"{advocate.email} has endorsed you! https://encourageapp.herokuapp.com/profile/{user.id}"}
     response = requests.post(url, auth=auth, data=data)
     resp = response.content    
     return redirect(f'/endorsed/{concealed_advocate_id}')
@@ -200,7 +200,7 @@ def send_user_invite_form():
     data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{email}"],
             "subject": "Hello",
-            "text": f"{user.first_name} {user.last_name} wants you to join their social circle! http://localhost:5000/register"}
+            "text": f"{user.first_name} {user.last_name} wants you to join their social circle! https://encourageapp.herokuapp.com/register"}
     response = requests.post(url , auth = auth, data = data)
     resp = response.content
     # resp = response.json

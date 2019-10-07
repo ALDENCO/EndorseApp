@@ -16,9 +16,5 @@ flask-debug-toolbar = "*"
 os = "*"
 redirect = "*"
 
-[scripts]
-
-API_KEY = "key-e3a99588efbb2f805d2b3a4ab7452703"
-
 [requires]
 python_version = "3.6"
