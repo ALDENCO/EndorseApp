@@ -42,47 +42,11 @@ def register():
         password = request.form['password']
         verify = request.form['verify']
         owner = request.args.get('user')
-    #     if not is_email(email):
-    #         flash('zoiks! "' + email + '" does not seem like an email address')
-    #         return redirect('/register')
-    #     #email_db_count = User.query.filter_by(email=email).count()
-    #    # if email_db_count > 0:
-    #         #flash('yikes! "' + email + '" is already taken and password reminders are not implemented')
-    #         #return redirect('/register')
-    #     if password != verify:
-    #         flash('passwords did not match')
-    #         return redirect('/register')
         user = User(email = email, first_name = first_name, last_name = last_name, age = age, password = password)
         db.session.add(user)
         db.session.commit()
         session['user'] = user.email
         return render_template('login.html')
-    # else:
-    #     return redirect("/register")
-
-
-
-
-# @app.route('/login', methods = ['GET','POST'])
-# def login():
-#     if request.method == 'GET':
-#         print("You're getting mofucka!")
-#         return render_template('login.html')
-#     elif request.method == 'POST':
-#         email = request.form.get('email')
-#         if not email:
-#             # form was either missing an appropriate email input or they didn't enter an email
-#             # ideally you would sanitize/validate the email address here and return some 400 level code if it's invalid
-#             return 400
-        
-#         user = User.query.filter_by(email=email).one_or_none()
-#         # one_or_none() returns None, the model, or raises an error (because there is more than 1 matching record). it saves you a .count() check
-        
-#         if not user:
-#             return 404
-        
-#         session[user_id] = user.id
-#         return redirect('/profile/{}'.format(user.id))
 
 @app.route('/login', methods = ['GET','POST'])
 def login():
@@ -147,8 +111,11 @@ def specific_users_profile(user_id):
 
 @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
+    print("GET REQUEST END")
+    
     return render_template('request_endorsement.html')
 SafeSerializer = URLSafeSerializer('advocate_id')
+
 
 
 @app.route('/request_endorsement', methods = ['POST'])
@@ -161,27 +128,30 @@ def send_request_endorsement_form():
     db.session.commit()
     #import pdb; pdb.set_trace()
     concealed_adv_id = SafeSerializer.dumps(advocate.id)
+    # os.putenv('api')
+    print("GETTING")
   
 
-    url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    auth = ("api","fea3")
-    # auth=("api", os.getenv('api'))
+    url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages")
+    auth=('api', os.getenv('API_KEY'))
+    print("POSTING")
     data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{advocate.email}"],
             "subject": "Hello",
             "text": f"{user.first_name} {user.last_name} is requesting your endorsement! https://encourageapp.herokuapp.com/endorse/{concealed_adv_id}"}
     response = requests.post(url , auth = auth, data = data)
-    resp = response.json()
+    resp = response.content
     return redirect(f'profile/{user.id}')
 
 @app.route('/endorse/<concealed_advocate_id>', methods=['GET'])
 def now_view_empty_endorsement_form(concealed_advocate_id):
     advocate_id = SafeSerializer.loads(concealed_advocate_id)
-    return render_template('endorse.html', advocate_id = advocate_id, concealed_advocate_id = concealed_advocate_id)
+    return render_template('endorse.html', advocate_id=advocate_id, concealed_advocate_id=concealed_advocate_id)
+    
 
 
-@app.route('/endorse/<concealed_advocate_id>', methods = ['POST'])
-def submit_endorsement(concealed_advocate_id): 
+@app.route('/endorse/<concealed_advocate_id>', methods=['POST'])
+def submit_endorsement(concealed_advocate_id):
     advocate_id = SafeSerializer.loads(concealed_advocate_id)
     endorsement_text = request.form['endorsement_text']
     picture_url = request.form['picture_url']
@@ -194,16 +164,15 @@ def submit_endorsement(concealed_advocate_id):
     db.session.add(advocate)
     db.session.commit()
     session['advocate'] = advocate.email
-    url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    auth = ("api","fea3")
-    # auth=("api", os.getenv('api_key'))
+
+    url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages")
+    auth=('api', os.getenv('API_KEY'))
     data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{user.email}"],
             "subject": "Hello",
             "text": f"{advocate.email} has endorsed you! http://localhost:5000/profile/{user.id}"}
-    response = requests.post(url , auth = auth, data = data)
-    #print(response)
-    resp = response.json()
+    response = requests.post(url, auth=auth, data=data)
+    resp = response.content    
     return redirect(f'/endorsed/{concealed_advocate_id}')
 
 @app.route('/endorsed/<concealed_advocate_id>', methods = ['GET'])
@@ -226,17 +195,16 @@ def send_user_invite_form():
     # if user in session:
     #     print(yes)
 
-    url = ("https://api.mailgun.net/v3/sandboxbb3c57abd2b74c158f41c341ba91123b.mailgun.org/messages")
-    auth = ("api","fea3")
-    # auth=("api", os.getenv('api_key'))
+    url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages")
+    auth=('api', os.getenv('API_KEY'))
     data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{email}"],
             "subject": "Hello",
             "text": f"{user.first_name} {user.last_name} wants you to join their social circle! http://localhost:5000/register"}
     response = requests.post(url , auth = auth, data = data)
-    #print(response)
-    print(data)
-    resp = response.json()
+    resp = response.content
+    # resp = response.json
+    # print(response.content)
     return redirect(f'profile/{user.id}')
 
 

@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgres://lo
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'secret key'
-app.config['api'] = os.getenv('api')
+app.config['API_KEY'] = os.getenv('API_KEY')
 # app.debug = True
 
 toolbar = DebugToolbarExtension(app)
