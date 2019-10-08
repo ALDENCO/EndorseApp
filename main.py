@@ -5,7 +5,7 @@ from itsdangerous import URLSafeSerializer
 import cgi
 import requests
 import os
-# from flask_debugtoolbar import DebugToolbarExtension
+from flask_debugtoolbar import DebugToolbarExtension
 
 
 @app.route('/home', methods = ['GET'])
