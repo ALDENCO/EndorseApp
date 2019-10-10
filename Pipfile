@@ -8,9 +8,7 @@ verify_ssl = true
 [packages]
 flask = "*"
 sql-alchemy = "*"
-flask-sqlalchemy = "*"
 requests = "*"
-flask-sql-alchemy = "*"
 itsdangerous = "*"
 flask-debug-toolbar = "*"
 os = "*"
