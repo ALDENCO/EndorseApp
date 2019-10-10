@@ -7,12 +7,9 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-sql-alchemy = "*"
 requests = "*"
 itsdangerous = "*"
-flask-debug-toolbar = "*"
-os = "*"
-redirect = "*"
+flask-debugtoolbar = "*"
 
 [requires]
 python_version = "3.6"
