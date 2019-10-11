@@ -16,7 +16,7 @@ def view_blank_homepage():
 @app.route('/', methods = ['GET'])
 def index():
     # return render_template('home.html')
-    owner = request.args.get("user")
+    owner = request.args.get(["user"])
     if owner:
         advocates = Advocate.query.filter_by(owner_id=owner).all()
   
