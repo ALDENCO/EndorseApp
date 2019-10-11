@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
 import psycopg2
 from flask_migrate import Migrate
-migrate = Migrate(app, db)
+
 
 app = Flask(__name__)
 app.config['DEBUG'] = True      # displays runtime errors in the browser, too
@@ -18,4 +18,5 @@ app.debug = True
 
 
 toolbar = DebugToolbarExtension(app)
+migrate = Migrate(app, db)
 db = SQLAlchemy(app)
