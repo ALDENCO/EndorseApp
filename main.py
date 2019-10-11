@@ -15,14 +15,14 @@ def view_blank_homepage():
 
 @app.route('/', methods = ['GET'])
 def index():
-    # return render_template('home.html')
-    owner = request.args.get(["user"])
-    if owner:
-        advocates = Advocate.query.filter_by(owner_id=owner).all()
+    return render_template('home.html')
+    # owner = request.args.get(["user"])
+    # if owner:
+    #     advocates = Advocate.query.filter_by(owner_id=owner).all()
   
-    user = User.query.all()
-    advocates = Advocate.query.all()
-    return render_template('index.html', advocates = advocates, user = user, owner = owner)
+    # user = User.query.all()
+    # advocates = Advocate.query.all()
+    # return render_template('index.html', advocates = advocates, user = user, owner = owner)
     #return render_template('login.html')
     # if user_is_logged_in():
     #     return redirect('somewheree else')
