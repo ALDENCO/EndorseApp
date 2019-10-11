@@ -18,5 +18,5 @@ app.debug = True
 
 
 toolbar = DebugToolbarExtension(app)
-migrate = Migrate(app, db)
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
