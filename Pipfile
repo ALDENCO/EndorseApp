@@ -13,6 +13,8 @@ flask-debugtoolbar = "*"
 gunicorn = "*"
 flask-sqlalchemy = "*"
 psycopg2 = "*"
+boto3 = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"
