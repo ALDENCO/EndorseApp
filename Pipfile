@@ -10,11 +10,12 @@ flask = "*"
 requests = "*"
 itsdangerous = "*"
 flask-debugtoolbar = "*"
+flask-migrate = "*"
 gunicorn = "*"
 flask-sqlalchemy = "*"
 psycopg2 = "*"
-boto3 = "*"
 psycopg2-binary = "*"
+flask-migrate = "*"
 
 [requires]
 python_version = "3.6"

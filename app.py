@@ -3,6 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
 import psycopg2
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['DEBUG'] = True      # displays runtime errors in the browser, too
@@ -13,6 +14,7 @@ app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'secret key'
 app.config['API_KEY'] = os.getenv('API_KEY')
 app.debug = True
+migrate = Migrate(app, db)
 
 toolbar = DebugToolbarExtension(app)
 db = SQLAlchemy(app)
