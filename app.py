@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'secret key'
 app.config['API_KEY'] = os.getenv('API_KEY')
-app.debug = True
+app.debug = False #set to True to re-enable the DebugToolbar
 
 
 toolbar = DebugToolbarExtension(app)
