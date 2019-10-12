@@ -2257,6 +2257,8 @@ button.contact {
   text-align: center;
 }
 
+/* Chuck from Mozilla showed me how to manipulate exquisite CSS; I will study the padding and everything used here for perfected design/positioning */
+
 button.added-by-chuck {
   appearance: none;
   display: block;

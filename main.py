@@ -15,7 +15,7 @@ def view_blank_homepage():
 
 @app.route('/', methods = ['GET'])
 def index():
-    return render_template('home.html')
+    return render_template('home.html') #I've rerouted the index file to the home.html template
     # owner = request.args.get(["user"])
     # if owner:
     #     advocates = Advocate.query.filter_by(owner_id=owner).all()
@@ -90,14 +90,14 @@ def logged_in_user_profile():
 def specific_users_profile(user_id): #call that specific user id
     user = User.query.get(user_id) #again, the user equals the user.id in session
     advocate = user.advocates #the advocate equals the advocate as defined/invited/linked to the user in the database
-    return render_template('profile.html', advocate = advocate, user=[user]) #show me that specific user's profile, only show that specific [user] from the user database
+    return render_template('profile.html', advocate = advocate, user=[user]) #show me that specific user's profile, only show that specific [user] from the user table
 
-@app.route('/request_endorsement', methods = ['GET']) #get method 
+@app.route('/request_endorsement', methods = ['GET']) #get method to show the empty request endorsement form
 def view_empty_request_endorsement_form():
     print("GET REQUEST END")
     
     return render_template('request_endorsement.html')
-SafeSerializer = URLSafeSerializer('advocate_id')
+SafeSerializer = URLSafeSerializer('advocate_id') # itsdangerous safeserializer is assigning a random key value to the advocate id for security purposes (so anybody from the peanut gallery can't hack another's profile
 
 
 
@@ -106,30 +106,27 @@ def send_request_endorsement_form():
     email = request.form['email']
     user_id = session['user_id']
     user = User.query.first()
-    advocate = Advocate(email = email, owner_id = user_id)
-    db.session.add(advocate)
+    advocate = Advocate(email = email, owner_id = user_id) #the advocate is defined by the email from the form input, the owner id, owned by the advocate, is equal to the user id value
+    db.session.add(advocate) #create a new session, defined by the advocate now
     db.session.commit()
-    #import pdb; pdb.set_trace()
-    concealed_adv_id = SafeSerializer.dumps(advocate.id)
-    # os.putenv('api')
-    print("GETTING")
-  
+    #import pdb; pdb.set_trace() #stops code at this point so that I may ensure specific methods have completed successfully 
+    concealed_adv_id = SafeSerializer.dumps(advocate.id) # the created advocate id is defined by the value created by the safe serializer aka the conceald advocate id
 
-    url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages")
-    auth=('api', os.getenv('API_KEY'))
-    print("POSTING")
+    url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages") #mailgun api url categorized by JSON parameters
+    auth=('api', os.getenv('API_KEY')) #the api, as recognized by JSON, is populated by calling the environmental variable via the OS, the api key value identified as API_KEY
+    print("POSTING") #debugging message showing that the POST method is successful to this point
     data={"from": "postmaster@www.alexrmyers.com",
             "to": [f"{advocate.email}"],
             "subject": "Hello",
             "text": f"{user.first_name} {user.last_name} is requesting your endorsement! https://encourageapp.herokuapp.com/endorse/{concealed_adv_id}"}
-    response = requests.post(url , auth = auth, data = data)
-    resp = response.content
+    response = requests.post(url , auth = auth, data = data) #the api response initiatied by the python requests library
+    resp = response.content #the api response equals the exact content of that response
     return redirect(f'profile/{user.id}')
 
 @app.route('/endorse/<concealed_advocate_id>', methods=['GET'])
 def now_view_empty_endorsement_form(concealed_advocate_id):
-    advocate_id = SafeSerializer.loads(concealed_advocate_id)
-    return render_template('endorse.html', advocate_id=advocate_id, concealed_advocate_id=concealed_advocate_id)
+    advocate_id = SafeSerializer.loads(concealed_advocate_id) #the empty endorsement form is served only to the email address of the defined concealed advocate id
+    return render_template('endorse.html', advocate_id=advocate_id, concealed_advocate_id=concealed_advocate_id) #identifies database values for jinja
     
 
 
@@ -146,7 +143,7 @@ def submit_endorsement(concealed_advocate_id):
     advocate.picture_url = picture_url
     db.session.add(advocate)
     db.session.commit()
-    session['advocate'] = advocate.email
+    session['advocate'] = advocate.email #define the session as unique to that advocate's email
 
     url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages")
     auth=('api', os.getenv('API_KEY'))
@@ -194,10 +191,10 @@ def send_user_invite_form():
 @app.route('/logout', methods=['GET','POST']) 
 def logout():
     # print(user_id)
-    session.pop('user_id', None)
+    session.pop('user_id', None) #pop that user.id out of session and make the value none so that no user is in session
     print(session.get('user_id'))
-    return redirect('/login')
+    return redirect('/login') #redirect that user to the login form to create a new session
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": #if the name of the file is main, run the app
     app.run()
