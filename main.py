@@ -30,22 +30,22 @@ def index():
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
-    if request.method == 'GET':  #the register route must first get the register html template
-        print("getting")
+    if request.method == 'GET':  #the register route must first GET the register.html template
+        # print("getting") shows that the GET method worked in terminal
         return render_template('register.html')
     elif request.method == 'POST':
-        print("aint doing shit")
+        # print("aint doing shit")
         first_name = request.form['first_name'] # user sending information / filling out information
-        last_name = request.form['last_name']
+        last_name = request.form['last_name'] #request.form says grab user input from last_name and add to database
         age = request.form['age']
         email = request.form['email']
         password = request.form['password']
         verify = request.form['verify']
-        owner = request.args.get('user')
-        user = User(email = email, first_name = first_name, last_name = last_name, age = age, password = password)
-        db.session.add(user)
-        db.session.commit()
-        session['user'] = user.email
+        owner = request.args.get('user') #assign a user an owner foreign key value
+        user = User(email = email, first_name = first_name, last_name = last_name, age = age, password = password) #identifies each form value as equaling its corresponding value in the database
+        db.session.add(user) #officially adds the user of that session as defined above to the database
+        db.session.commit() #commits/saves that user to the database permanently 
+        session['user'] = user.email #session is defined as a user via user email
         return render_template('login.html')
 
 @app.route('/login', methods = ['GET','POST'])
@@ -55,61 +55,44 @@ def login():
     elif request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-        users = User.query.filter_by(email=email)
-        if users.count() == 1:
-            user = users.first()
-            if password == user.password:
-                session['user_id'] = user.id
-                flash('welcome back, '+user.email)
-                return redirect(f'profile/{user.id}')
+        users = User.query.filter_by(email=email) #get the user from the database; defined as the email entered into the login form corresponding to the same value stored in the database
+        if users.count() == 1: #only one user (as defined by their unique email) can exist in this database
+            user = users.first() #find the first instance of the user that matches the data requested by the login form
+            if password == user.password: #if the password entered matches the password stored in the database
+                session['user_id'] = user.id #resume the session of that user.id
+                flash('welcome back, '+user.email) 
+                return redirect(f'profile/{user.id}') #take that user to their personal profile
         flash('bad username or password')
-        return render_template("/register")
+        return render_template("/register") #else return the user to the register template as there data is not verified by the database
         
-def is_email(string):
+def is_email(string): #define an email as a string that must include an @ sign
     atsign_index = string.find('@')
     atsign_present = atsign_index >= 0
     if not atsign_present:
         return False
     else:
-        domain_dot_index = string.find('.', atsign_index)
+        domain_dot_index = string.find('.', atsign_index) #additionally an email is recognized as containing a .domain 
         domain_dot_present = domain_dot_index >= 0
         return domain_dot_present
 
 @app.route('/profile', methods = ['GET'])
 def logged_in_user_profile():
-    if 'user_id' not in session:  #user is logged in, send them somewhere else
+    if 'user_id' not in session:  #if the user is not already in session (aka logged in), return them to the login template
         print(user_id)
         return redirect("login.html")
-    user_id = session['user_id']
+    user_id = session['user_id'] #defining the user_id by the user.id that is already logged in / in session in the database
     user = User.query.get(user_id) # get the user from the database
-    advocates = user.advocates
-    return render_template('profile.html', user = user, advocates = advocates)
-
-# @app.route('/profile/{}'.format(user.id), methods = ['GET'])
-# def logged_in_user_profile():
-#     if user not in session: #user is logged in, send them somewhere else
-#         print("not in sesh")
-#         return redirect("login.html")
-#     session[user_id] = user.id
-#     user = User.query.get([user_id]) # get the user from the database
-#     advocates = user.advocates
-#     print('logged in profile')
-#     return render_template('/profile/{}'.format(user_id), user = user, advocates = advocates)
+    advocates = user.advocates # any advocate must be owned / linked/ invited by the user in session
+    return render_template('profile.html', user = user, advocates = advocates) #passes the user and advocate data into the profile so that it will be recognized by jinja
 
 
-# @app.route('/profile/{}'.format(user_id), methods = ['GET'])
-# def specific_users_profile(user_id):
-#     user = User.query.get([user_id])
-#     advocate = user.advocates
-#     print("SPECIFIC")
-#     return render_template('profile.html', advocate = advocate, user = [user])
-@app.route('/profile/<user_id>', methods = ['GET'])
-def specific_users_profile(user_id):
-    user = User.query.get(user_id)
-    advocate = user.advocates
-    return render_template('profile.html', advocate = advocate, user=[user])
+@app.route('/profile/<user_id>', methods = ['GET']) #only show the user who's user.id is in session; aka privacy/security
+def specific_users_profile(user_id): #call that specific user id
+    user = User.query.get(user_id) #again, the user equals the user.id in session
+    advocate = user.advocates #the advocate equals the advocate as defined/invited/linked to the user in the database
+    return render_template('profile.html', advocate = advocate, user=[user]) #show me that specific user's profile, only show that specific [user] from the user database
 
-@app.route('/request_endorsement', methods = ['GET'])
+@app.route('/request_endorsement', methods = ['GET']) #get method 
 def view_empty_request_endorsement_form():
     print("GET REQUEST END")
     
