@@ -97,9 +97,6 @@ def view_empty_request_endorsement_form():
     user_id = session['user_id']
     user = User.query.get(user_id)
     return render_template('request_endorsement.html', user=[user])
-SafeSerializer = URLSafeSerializer('advocate_id')
-    
-    return render_template('request_endorsement.html')
 SafeSerializer = URLSafeSerializer('advocate_id') # itsdangerous safeserializer is assigning a random key value to the advocate id for security purposes (so anybody from the peanut gallery can't hack another's profile
 
 
