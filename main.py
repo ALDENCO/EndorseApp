@@ -92,9 +92,12 @@ def specific_users_profile(user_id): #call that specific user id
     advocate = user.advocates #the advocate equals the advocate as defined/invited/linked to the user in the database
     return render_template('profile.html', advocate = advocate, user=[user]) #show me that specific user's profile, only show that specific [user] from the user table
 
-@app.route('/request_endorsement', methods = ['GET']) #get method to show the empty request endorsement form
+  @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
-    print("GET REQUEST END")
+    user_id = session['user_id']
+    user = User.query.get(user_id)
+    return render_template('request_endorsement.html', user=[user])
+SafeSerializer = URLSafeSerializer('advocate_id')
     
     return render_template('request_endorsement.html')
 SafeSerializer = URLSafeSerializer('advocate_id') # itsdangerous safeserializer is assigning a random key value to the advocate id for security purposes (so anybody from the peanut gallery can't hack another's profile
@@ -164,7 +167,9 @@ def endorsed(concealed_advocate_id):
 
 @app.route('/invite', methods = ['GET'])
 def view_empty_user_invite_form():
-    return render_template('invite.html')
+    user_id = session['user_id']
+    user = User.query.get(user_id)
+    return render_template('invite.html', user=[user])
 
 
 @app.route('/invite', methods = ['POST'])

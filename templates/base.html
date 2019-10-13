@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
+      {% block head %}
       <title>Encourage</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +18,19 @@
                <a class="nav-link" href="/invite">Invite</a>
             </li>
             <li class="nav-item">
+               {% for user in user %}
+               <form action="/profile/{{user.id}}" method="GET"><button class="btn-link added-by-chuck" type="submit">Profile</button></form>
+               {% endfor %}
+            </li>
+            <li class="nav-item">
                <form action="/logout" method="POST"><button class="btn-link added-by-chuck" type="submit">Logout</button></form>
             </li>
          </ul>
       </nav>
+      {% endblock %}
    </head>
-   <body></body>
-   {% block content %} {% endblock %} <!-- these are essential to jinja templating -->
+   <body>
+      {% block content %} {% endblock %}
+   </body>
 </html>
 
