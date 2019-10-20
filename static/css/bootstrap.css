@@ -6,9 +6,9 @@
  */
 
  .btn.added-by-alex {
-  color: #0000FF;
-  background-color: #007bff;
-  border-color: #007bff;
+  color: black;
+  background-color: transparent;
+  border-color: black;
   text-align: center;
   display: inline-block;
   position: inherit;
@@ -22,7 +22,7 @@
 }
 
 .btn.added-by-alex-primary.disabled, .btn-outline-primary:disabled {
-  color: #007bff;
+  color: black;
   background-color: transparent;
 }
 
