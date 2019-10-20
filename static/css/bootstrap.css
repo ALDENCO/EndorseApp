@@ -5,6 +5,37 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+ .btn.added-by-alex {
+  color: #0000FF;
+  background-color: #007bff;
+  border-color: #007bff;
+  text-align: center;
+  display: inline-block;
+  position: inherit;
+  top: 50%;
+  left: 50%;
+ 
+}
+
+.btn.added-by-alex-primary:focus, .btn-outline-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.btn.added-by-alex-primary.disabled, .btn-outline-primary:disabled {
+  color: #007bff;
+  background-color: transparent;
+}
+
+.btn.added-by-alex,.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show>.btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn.added-by-alex,.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
  .help-tip{
   position: absolute;
   top: 18px;
@@ -17,6 +48,7 @@
   font-size: 14px;
   line-height: 26px;
   cursor: default;
+
 }
 
 .help-tip:before{
@@ -27,26 +59,25 @@
 
 .help-tip:hover p{
   display:block;
-  height:1400px;
-  width: 1000px;
+  height:auto;
+  width: 400px;
   transform-origin: 100% 0%;
 
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
-
 }
 
 .help-tip p{    /* The tooltip */
   display: none;
-  text-align: left;
+  text-align: center;
   background-color: #1E2021;
-  padding: 20px;
-  width: 200px;
-  height: 300px;
+  padding: 5px;
+  width: auto;
+  height: auto;
   position: absolute;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  right: -4px;
+  left: -180px;
   color: #FFF;
   font-size: 13px;
   line-height: 1.4;
@@ -59,16 +90,19 @@
   height: 0;
   border:6px solid transparent;
   border-bottom-color:#1E2021;
-  right:10px;
+  right:50%;
   top:-12px;
 }
 
 .help-tip p:after{ /* Prevents the tooltip from being hidden */
 
   content:'';
+  display: inline-block;
   position: absolute;
   top:-40px;
-  left:0;
+  left:-50%;
+  text-align: center;
+  width:auto;
 }
 
 /* CSS animation */
@@ -1986,6 +2020,9 @@ textarea.form-control {
 
 .form-group {
   margin-bottom: 1rem;
+  width:300px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .form-text {
@@ -2660,6 +2697,9 @@ a.btn.disabled, fieldset:disabled a.btn {
 .btn-outline-primary {
   color: #007bff;
   border-color: #007bff;
+  width: 300px;
+  display:inline-block;
+  
 }
 
 .btn-outline-primary:hover {
