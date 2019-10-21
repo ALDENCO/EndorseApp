@@ -33,7 +33,7 @@
 }
 
 .btn.added-by-alex,.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem #262526;
+  box-shadow: 0 0 0 0.0rem #262526;
 }
 
  .help-tip{
