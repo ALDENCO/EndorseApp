@@ -18,7 +18,7 @@
 }
 
 .btn.added-by-alex-primary:focus, .btn-outline-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.0rem rgba(0, 123, 255, 0.5);
 }
 
 .btn.added-by-alex-primary.disabled, .btn-outline-primary:disabled {
