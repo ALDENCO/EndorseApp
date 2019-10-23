@@ -7,21 +7,26 @@
       <link rel="stylesheet" href="/static/css/bootstrap.css">
    </head>
    <body>
-   {% extends "base.html" %}
-   {% block content %}
+      {% extends "base.html" %}
+      {% block content %}
    </body>
    <div class="container-fluid">
       <!-- Control the column width, and how they should appear on different devices -->
       <div class="row">
          <div class="col"></div>
          <div class="col-6">
-            <h1 class="display-1" style="color:red">Encourage</h1>
+            <h1 class="display-1 text-center" style="color:red">Encourage</h1>
+            <div class="help-tip">
+               <p>Here, users can invite others to create their own profile.</p>
+            </div>
             <form action="/invite" method="post">
                <div class="form-group">
                   <label for="email">Email:</label>
                   <input type="email" class="form-control" id="email" name="email">
                </div>
-               <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Invite</button>
+               <div class="text-center">
+                  <button type="submit" class="btn added-by-alex btn-outline-dark btn-lg">Invite</button>
+               </div>
             </form>
          </div>
          <div class="col"></div>

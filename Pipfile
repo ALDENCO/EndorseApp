@@ -7,14 +7,21 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-sql-alchemy = "*"
-flask-sqlalchemy = "*"
 requests = "*"
-flask-sql-alchemy = "*"
 itsdangerous = "*"
+<<<<<<< HEAD
 flask-debug-toolbar = "*"
 os = "*"
 redirect = "*"
+=======
+flask-debugtoolbar = "*"
+flask-migrate = "*"
+gunicorn = "*"
+flask-sqlalchemy = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+>>>>>>> Heroku2
 
 [requires]
 python_version = "3.6"
+

@@ -1,42 +1,43 @@
 <!doctype html>
 <html>
    <head>
-     <title>Encourage</title>
+      <title>Encourage</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="/static/css/bootstrap.css">
    </head>
    <body>
       {% block content %}
-</body>
- <div class="container-fluid">
-    <!-- Control the column width, and how they should appear on different devices -->
-    <div class="row">
-    <div class="col"></div>
-      <div class="col-6">
-      <h1 class="display-1" style="color:red">Encourage</h1>
- <form action="/endorse/{{concealed_advocate_id}}" method="post">
-  <div class="form-group">
-    <label for="endorsement_text">Provide your endorsement here:</label>
-    <input type="text" class="form-control" id="endorsement_text" name="endorsement_text">
-  </div>
-  <div class="form-group">
-  <p></p>
-    <label for="picture_url"><a href="https://imgbb.com/">free image url hosting @ imgbb.com</a></label>
-    <input type="text" class="form-control" id="picture_url" name="picture_url">
-  </div>
-  <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Endorse</button>
-</form> 
-</div>
-     <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
+   </body>
+   <div class="container-fluid">
+      <!-- Control the column width, and how they should appear on different devices -->
+      <div class="row">
+         <div class="col"></div>
+         <div class="col-6">
+            <h1 class="display-1 text-center" style="color:red">Encourage</h1>
+            <div class="help-tip">
+               <p>After uploading to imgbb, choose the embed code, specifically HTML Thumbnail Linked, and grab the url quoted in img src=</p>
+            </div>
+            <form action="/endorse/{{concealed_advocate_id}}" method="post">
+               <div class="form-group">
+                  <label for="endorsement_text">Provide your encouragement here:</label>
+                  <input type="text" class="form-control" id="endorsement_text" name="endorsement_text">
+               </div>
+               <div class="form-group">
+                  <p></p>
+                  <label for="picture_url"><a href="https://imgbb.com/">free image url hosting @ imgbb.com</a></label>
+                  <input type="text" class="form-control" id="picture_url" name="picture_url">
+               </div>
+               <div class="text-center">
+                  <button type="submit" class="btn added-by-alex btn-outline-dark btn-lg">Endorse</button>
+               </div>
+            </form>
+         </div>
+         <div class="col"></div>
+      </div>
+   </div>
+   {% endblock %}
 </html>
-
-
-
-
 <!-- login will collect user database input from the email and password fields-->
 <!-- endorse will POST endorsement_text and/or picture_url data to the Advocate database  -->
 

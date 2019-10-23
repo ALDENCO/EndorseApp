@@ -9,14 +9,19 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-6">
-               <h1 class="display-1" style="color:red">Encourage</h1>
-               <h2>Request encouragement from a friend:</h2>
+               <h1 class="display-1 text-center" style="color:red">Encourage</h1>
+               <div class="help-tip">
+                  <p>Now insert the email of a trusted member of your social circle. They will be asked to suggest a photo of you and provide an encouragement or endorsement.</p>
+               </div>
+               <h2 class="text-center">Request encouragement from a friend:</h2>
                <form action="/request_endorsement" method="post">
                   <div class="form-group">
                      <label for="email">Email:</label>
                      <input type="email" class="form-control" id="email" name="email">
                   </div>
-                  <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Request Encouragement</button>
+                  <div class="text-center">
+                     <button type="submit" class="btn added-by-alex btn-outline-dark btn-lg">Request Encouragement</button>
+                  </div>
                </form>
             </div>
             <div class="col"></div>
