@@ -36,93 +36,6 @@
   box-shadow: 0 0 0 0.0rem #262526;
 }
 
- .help-tip{
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  text-align: center;
-  background-color: #BCDBEA;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-  line-height: 26px;
-  cursor: default;
-
-}
-
-.help-tip:before{
-  content:'?';
-  font-weight: bold;
-  color:#fff;
-}
-
-.help-tip:hover p{
-  display:block;
-  height:auto;
-  width: 400px;
-  transform-origin: 100% 0%;
-
-  -webkit-animation: fadeIn 0.3s ease-in-out;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.help-tip p{    /* The tooltip */
-  display: none;
-  text-align: center;
-  background-color: #1E2021;
-  padding: 5px;
-  width: auto;
-  height: auto;
-  position: absolute;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  left: -180px;
-  color: #FFF;
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.help-tip p:before{ /* The pointer of the tooltip */
-  position: absolute;
-  content: '';
-  width:0;
-  height: 0;
-  border:6px solid transparent;
-  border-bottom-color:#1E2021;
-  right:50%;
-  top:-12px;
-}
-
-.help-tip p:after{ /* Prevents the tooltip from being hidden */
-
-  content:'';
-  display: inline-block;
-  position: absolute;
-  top:-40px;
-  left:-50%;
-  text-align: center;
-  width:auto;
-}
-
-/* CSS animation */
-
-@-webkit-keyframes fadeIn {
-  0% { 
-      opacity:0; 
-      transform: scale(0.6);
-  }
-
-  100% {
-      opacity:100%;
-      transform: scale(1);
-  }
-}
-
-@keyframes fadeIn {
-  0% { opacity:0; }
-  100% { opacity:100%; }
-}
 
 
 :root {
@@ -152,19 +65,20 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, Raleway, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-*, *::before, *::after {
+/* *, *::before, *::after {
   box-sizing: border-box;
-}
+} */
 
 html {
-  font-family: sans-serif;
+  font-family: Raleway;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: transparent; 
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -173,13 +87,56 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: transparent;
+  /* background-image: inherit; */
+
+}
+
+body.home {
+  margin: 0;
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  /* background-color: #fff; */
+  background-image: url("https://i.ibb.co/mbwRCBJ/pexels-photo-697243.jpg");
+}
+
+
+body.register {
+  margin: 0;
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  /* background-color: #fff; */
+  background-image: url("https://i.ibb.co/zG7TjbX/backcloud.png");
+  background-size: auto;
+  background-position: bottom; 
+}
+
+body.request {
+  margin: 0;
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color:inherit;
+  background-image: url("https://i.ibb.co/1Q7bBXt/bench-chair-dock-288583.jpg");
+  background-size: auto;
+  /* background-position: bottom;  */
 }
 
 [tabindex="-1"]:focus {
