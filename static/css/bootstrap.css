@@ -5,6 +5,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+
+
  .btn.added-by-alex {
   color: black;
   background-color: transparent;
@@ -3931,6 +3933,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  background-color: transparent;
 }
 
 .nav-link {
@@ -4026,6 +4029,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: transparent;
 }
 
 .navbar>.container, .navbar>.container-fluid {
@@ -4037,6 +4041,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  background-color: transparent;
 }
 
 .navbar-brand {
@@ -4061,6 +4066,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  background-color: transparent;
 }
 
 .navbar-nav .nav-link {
@@ -4379,7 +4385,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .navbar-dark .navbar-nav .show>.nav-link, .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
-  color: #fff;
+  color:transparent;
 }
 
 .navbar-dark .navbar-toggler {
