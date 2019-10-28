@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
-   <body>
+   <body class="register">
       {% extends "base.html" %} <!-- block content and end block are jinja placeholders set by base.html that are necessary for any instance of jinja placeholders elsewhere in template; ex: for loops calling values from the database -->
       {% block content %}
       {% for advocate in advocate %} <!-- jinja templating for loop -->
       {% for user in user %}
       <div class="container">
-         <div class="help-tip">
-            <p>Why is your profile empty? Because on Encourage, profiles are built by requesting Encouragement from your social circle.   Click the button: Request Encouragement</p>
-         </div>
+            <h2>Profiles start out empty.  Request Encouragement to start building your profile.</h2>
          <div class="jumbotron">
             <div class="clearfix">
                <img style="float:left" class="thumbnail pull-left mr-4" src="{{advocate.picture_url}}">

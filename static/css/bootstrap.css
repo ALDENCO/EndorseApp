@@ -5,6 +5,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+
+
  .btn.added-by-alex {
   color: black;
   background-color: transparent;
@@ -69,15 +71,16 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-*, *::before, *::after {
+/* *, *::before, *::after {
   box-sizing: border-box;
-}
+} */
 
 html {
   font-family: Raleway;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: transparent; 
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -86,14 +89,14 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
-  /* background-image: url("https://i.ibb.co/mbwRCBJ/pexels-photo-697243.jpg"); */
+  background-color: transparent;
+  /* background-image: inherit; */
 
 }
 
@@ -107,6 +110,35 @@ body.home {
   text-align: left;
   /* background-color: #fff; */
   background-image: url("https://i.ibb.co/mbwRCBJ/pexels-photo-697243.jpg");
+}
+
+
+body.register {
+  margin: 0;
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  /* background-color: #fff; */
+  background-image: url("https://i.ibb.co/zG7TjbX/backcloud.png");
+  background-size: auto;
+  background-position: bottom; 
+}
+
+body.request {
+  margin: 0;
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color:inherit;
+  background-image: url("https://i.ibb.co/1Q7bBXt/bench-chair-dock-288583.jpg");
+  background-size: auto;
+  /* background-position: bottom;  */
 }
 
 [tabindex="-1"]:focus {
@@ -3901,6 +3933,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  background-color: transparent;
 }
 
 .nav-link {
@@ -3996,6 +4029,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: transparent;
 }
 
 .navbar>.container, .navbar>.container-fluid {
@@ -4007,6 +4041,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  background-color: transparent;
 }
 
 .navbar-brand {
@@ -4031,6 +4066,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  background-color: transparent;
 }
 
 .navbar-nav .nav-link {
@@ -4349,7 +4385,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .navbar-dark .navbar-nav .show>.nav-link, .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
-  color: #fff;
+  color:transparent;
 }
 
 .navbar-dark .navbar-toggler {

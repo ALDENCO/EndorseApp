@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-   <body>
+   <body class="request">
       {% extends "base.html" %}
       {% block content %}
       <!-- Control the column width, and how they should appear on different devices -->
@@ -10,10 +10,7 @@
             <div class="col"></div>
             <div class="col-6">
                <h1 class="display-1 text-center" style="color:red">Encourage</h1>
-               <div class="help-tip">
-                  <p>Now insert the email of a trusted member of your social circle. They will be asked to suggest a photo of you and provide an encouragement or endorsement.</p>
-               </div>
-               <h2 class="text-center">Request encouragement from a friend:</h2>
+               <h2 class="text-center">Request encouragement from a fan to start building your profile:</h2>
                <form action="/request_endorsement" method="post">
                   <div class="form-group">
                      <label for="email">Email:</label>
