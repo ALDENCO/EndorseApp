@@ -118,6 +118,7 @@ def send_request_endorsement_form():
     db.session.commit()
     #import pdb; pdb.set_trace() #stops code at this point so that I may ensure specific methods have completed successfully 
     concealed_adv_id = SafeSerializer.dumps(advocate.id) # the created advocate id is defined by the value created by the safe serializer aka the conceald advocate id
+    print(concealed_adv_id)
 
     url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages") #mailgun api url categorized by JSON parameters
     auth=('api', os.getenv('API_KEY')) #the api, as recognized by JSON, is populated by calling the environmental variable via the OS, the api key value identified as API_KEY
