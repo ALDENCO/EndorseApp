@@ -32,6 +32,7 @@ def index():
 def register():
     if request.method == 'GET':  #the register route must first GET the register.html template
         # print("getting") shows that the GET method worked in terminal
+        print("HERE AGAIN?")
         return render_template('register.html')
     elif request.method == 'POST':
         # print("aint doing shit")
@@ -45,8 +46,14 @@ def register():
         user = User(email = email, first_name = first_name, last_name = last_name, age = age, password = password) #identifies each form value as equaling its corresponding value in the database
         db.session.add(user) #officially adds the user of that session as defined above to the database
         db.session.commit() #commits/saves that user to the database permanently 
-        session['user'] = user.email #session is defined as a user via user email
-        return render_template('login.html')
+        session['user'] = user.email  #session is defined as a user via user email
+        print("ARE WE HERE?")
+        # session['user_id'] = user.id
+        # user_id = session['user_id'] #defining the user_id by the user.id that is already logged in / in session in the database
+        users = User.query.filter_by(email=email)
+        user_id = User.query.get(user.id) # get the user from the database
+        advocates = user.advocates # any advocate must be owned / linked/ invited by the user in session
+        return redirect (f'profile/{user.id}')
 
 @app.route('/login', methods = ['GET','POST'])
 def login():

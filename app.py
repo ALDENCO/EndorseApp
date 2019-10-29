@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'secret key' #make cookie sessions into secure/unintendifiable secret key values
 app.config['API_KEY'] = os.getenv('API_KEY') #tells python to identify the API_KEY as set in en environmental variable (.env file that is identified in the git ignore)
-app.debug = False #set to True to re-enable the DebugToolbar
+app.debug = True #set to True to re-enable the DebugToolbar
 
 
 toolbar = DebugToolbarExtension(app)
