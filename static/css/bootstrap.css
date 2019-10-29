@@ -81,6 +81,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   background: transparent; 
+  overflow: hidden;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -96,6 +97,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: transparent;
+  overflow: hidden;
   /* background-image: inherit; */
 
 }
@@ -110,6 +112,7 @@ body.home {
   text-align: left;
   /* background-color: #fff; */
   background-image: url("https://i.ibb.co/mbwRCBJ/pexels-photo-697243.jpg");
+  overflow: hidden;
 }
 
 
@@ -125,6 +128,7 @@ body.register {
   background-image: url("https://i.ibb.co/zG7TjbX/backcloud.png");
   background-size: auto;
   background-position: bottom; 
+  overflow: hidden;
 }
 
 body.request {
@@ -138,6 +142,7 @@ body.request {
   background-color:inherit;
   background-image: url("https://i.ibb.co/1Q7bBXt/bench-chair-dock-288583.jpg");
   background-size: auto;
+  overflow: hidden;
   /* background-position: bottom;  */
 }
 
