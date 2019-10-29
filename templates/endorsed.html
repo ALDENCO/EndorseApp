@@ -5,7 +5,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="/static/css/bootstrap.css">
-      <nav class="navbar bg-light">
+      <nav class="navbar">
          <ul class="navbar-nav">
             <li class="nav-item">
                <form action="/logout" method="POST"><button class="btn-link added-by-chuck" type="submit">Home</button></form>
@@ -22,13 +22,16 @@
       <div class="container">
       <div class="jumbotron">
       <div class="clearfix">
-      <img style="float:left" class="pull-left mr-4" src={{advocate.picture_url}}>
+      <img style="float:left" class="pull-left img-thumbnail" src="{{advocate.picture_url}}">
       <div class="text-center">
          <h3>You've successfully endorsed {{user.first_name}} {{user.last_name}}</h3>
          <br>
          <h5>{{advocate.email}} suggested this profile photo and description of me:</h5>
          <br>
          <h3 style="color:red">{{advocate.endorsement_text}}</h3>
+      </div>
+      </div>
+      </div>
       </div>
       {% endblock %}
    </body>

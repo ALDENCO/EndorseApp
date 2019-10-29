@@ -203,7 +203,7 @@ def logout():
     # print(user_id)
     session.pop('user_id', None) #pop that user.id out of session and make the value none so that no user is in session
     print(session.get('user_id'))
-    return redirect('/login') #redirect that user to the login form to create a new session
+    return redirect('/home') #redirect that user to the login form to create a new session
 
 
 if __name__ == "__main__": #if the name of the file is main, run the app

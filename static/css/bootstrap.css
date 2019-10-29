@@ -535,8 +535,13 @@ mark, .mark {
   background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
-  max-width: 100%;
-  height: auto;
+  width: 180px;
+  height: 225px;
+  margin: 1.5rem;
+  margin-top: 0;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 
 .figure {
@@ -3934,6 +3939,9 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   margin-bottom: 0;
   list-style: none;
   background-color: transparent;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 
 .nav-link {
