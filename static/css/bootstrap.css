@@ -135,7 +135,7 @@ body.request {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: transparent;
+  background-color:inherit;
   background-image: url("https://i.ibb.co/1Q7bBXt/bench-chair-dock-288583.jpg");
   background-size: auto;
   /* background-position: bottom;  */
@@ -535,8 +535,13 @@ mark, .mark {
   background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
-  max-width: 100%;
-  height: auto;
+  width: 180px;
+  height: 225px;
+  margin: 1.5rem;
+  margin-top: 0;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 
 .figure {
@@ -3934,6 +3939,9 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   margin-bottom: 0;
   list-style: none;
   background-color: transparent;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 
 .nav-link {

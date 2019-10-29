@@ -13,28 +13,27 @@
          </ul>
       </nav>
    </head>
-   <body class="register">
+   <body>
       {% block content %}
       {% for advocate in advocates %}
       {% for user in user %}
       {% endfor %}
       {% endfor %}
       <div class="container">
-         <div class="jumbotron">
-            <div class="clearfix">
-               <img style="float:left" class="pull-left mr-4" src="{{advocate.picture_url}}">
-               <div class="text-center">
-                  <h3>You've successfully endorsed {{user.first_name}} {{user.last_name}}</h3>
-                  <br>
-                  <h5>{{advocate.email}} suggested this profile photo and description of me:</h5>
-                  <br>
-                  <h3 style="color:red">{{advocate.endorsement_text}}</h3>
-               </div>
-               {% endblock %}
-            </div>
-         </div>
+      <div class="jumbotron">
+      <div class="clearfix">
+      <img style="float:left" class="pull-left img-thumbnail" src="{{advocate.picture_url}}">
+      <div class="text-center">
+         <h3>You've successfully endorsed {{user.first_name}} {{user.last_name}}</h3>
+         <br>
+         <h5>{{advocate.email}} suggested this profile photo and description of me:</h5>
+         <br>
+         <h3 style="color:red">{{advocate.endorsement_text}}</h3>
       </div>
+      </div>
+      </div>
+      </div>
+      {% endblock %}
    </body>
 </html>
 <!-- endorse will GET email and endorsement_text from Advocate database and display in a message "Advo_email endorsed you"-->
-
