@@ -135,7 +135,7 @@ body.request {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color:inherit;
+  background-color: transparent;
   background-image: url("https://i.ibb.co/1Q7bBXt/bench-chair-dock-288583.jpg");
   background-size: auto;
   /* background-position: bottom;  */
