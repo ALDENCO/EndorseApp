@@ -1,3 +1,4 @@
+/* CSS used here will be applied after bootstrap.css */
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -11,12 +12,13 @@
   color: black;
   background-color: transparent;
   border-color: black;
-  text-align: center;
-  display: inline-block;
-  position: inherit;
+  text-align: left;
+  display: inline;
+  position: relative;
   top: 50%;
   left: 50%;
- 
+
+  
 }
 
 .btn.added-by-alex-primary:focus, .btn-outline-primary.focus {
@@ -110,7 +112,8 @@ body.home {
   text-align: left;
   /* background-color: #fff; */
   background-image: url("https://i.ibb.co/mbwRCBJ/pexels-photo-697243.jpg");
-}
+  background-position: top;
+    }
 
 
 body.register {
@@ -134,11 +137,12 @@ body.request {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  text-align: left;
+  text-align: center;
   background-color:inherit;
   background-image: url("https://i.ibb.co/1Q7bBXt/bench-chair-dock-288583.jpg");
   background-size: auto;
-  /* background-position: bottom;  */
+  background-position: top;
+ 
 }
 
 [tabindex="-1"]:focus {
@@ -157,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h3.endorsement_text {
-  text-align: center;
+  text-align: inherit;
   color: red;
 }
 
@@ -4950,9 +4954,11 @@ a.badge-dark:focus, a.badge-dark.focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
+  background: rgba(0,0,0,0.2);
   border-radius: 0.3rem;
 }
+
+
 
 @media (min-width: 576px) {
   .jumbotron {

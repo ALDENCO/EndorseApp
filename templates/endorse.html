@@ -9,11 +9,11 @@
    <body class="register">
       {% block content %}
    </body>
-   <div class="container-fluid">
+   <div class="d-flex container-fluid justify-content-center">
       <!-- Control the column width, and how they should appear on different devices -->
-      <div class="row">
-         <div class="col"></div>
-         <div class="col-6">
+      <div class="flex-md-row">
+         <div class="d-flex col-md-*"></div>
+         <div class="d-flex justify-content-center flex-column col-md-*">
             <h1 class="display-1 text-center" style="color:red">Encourage</h1>
                <h3 class="text-center">Provide an encouraging comment and appealing photo for this user:</h3>
             <form action="/endorse/{{concealed_advocate_id}}" method="post">
@@ -28,13 +28,13 @@
                   <input type="text" class="form-control text-center" id="picture_url" name="picture_url">
                </div>
                <p class="text-center"><a href="https://postimages.org/"  class="text-center">Free image url hosting @ postimages.org</a></p>
-               <p class="text-center">Don't rezize the image, once uploaded, just paste the Direct Link above:</p>
+               <p class="text-center">Don't resize the image; once uploaded, just paste the Direct Link above:</p>
                <div class="text-center">
                   <button type="submit" class="btn added-by-alex btn-outline-dark btn-lg">Endorse</button>
                </div>
             </form>
          </div>
-         <div class="col"></div>
+         <div class="d-flex col-md-*"></div>
       </div>
    </div>
    {% endblock %}

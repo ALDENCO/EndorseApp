@@ -13,14 +13,14 @@
          </ul>
       </nav>
    </head>
-   <body>
+   <body class="request">
       {% block content %}
       {% for advocate in advocates %}
       {% for user in user %}
       {% endfor %}
       {% endfor %}
-      <div class="container">
-      <div class="jumbotron">
+      <div class="container-fluid justify-content-center">
+      <div class="d-flex jumbotron">
       <div class="clearfix">
       <img style="float:left" class="pull-left img-thumbnail" src="{{advocate.picture_url}}">
       <div class="text-center">

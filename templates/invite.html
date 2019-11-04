@@ -10,11 +10,11 @@
       {% extends "base.html" %}
       {% block content %}
    </body>
-   <div class="container-fluid">
+   <div class="d-flex container-fluid justify-content-center">
       <!-- Control the column width, and how they should appear on different devices -->
-      <div class="row">
-         <div class="col"></div>
-         <div class="col-6">
+      <div class="flex-md-row">
+         <div class="d-flex col-md-*"></div>
+         <div class="d-flex justify-content-center flex-column col-md-*">
             <h1 class="display-1 text-center" style="color:red">Encourage</h1>
                <h2 class="text-center">Invite friends to start their own profile.</h2>
             <form action="/invite" method="post">
@@ -27,7 +27,7 @@
                </div>
             </form>
          </div>
-         <div class="col"></div>
+         <div class="d-flex col-md-*"></div>
       </div>
    </div>
    {% endblock %}
