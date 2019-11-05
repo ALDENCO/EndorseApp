@@ -145,6 +145,21 @@ body.request {
  
 }
 
+body.profile {
+  margin: 0;
+  font-family: inherit, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  /* color: #212529; */
+  text-align: left;
+  background-color:rgba(255, 255, 255, 0.3);
+  background-image: url("https://i.postimg.cc/gkqMRbBh/supportgroup.jpg");
+  background-size: 120%;
+  background-position: top;
+ 
+}
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
@@ -4954,7 +4969,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background: rgba(0,0,0,0.2);
+  background-color:rgba(255, 255, 255, 0.9);
   border-radius: 0.3rem;
 }
 
