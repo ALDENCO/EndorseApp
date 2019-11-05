@@ -1,10 +1,38 @@
-/* CSS used here will be applied after bootstrap.css */
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+#added-by-chuck .jumbotron {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  
+  /*
+  This ensures the text in the jumbotron element always has the appropriate padding.
+  You need to use calc() because it uses mixed units. This is, repsectively:
+  Jumbotron left padding + figure left margin + image width + figure right margin + jumbotron right padding
+  */
+  padding-left: calc(2rem + 1.5rem + 180px + 1.5rem + 2rem);
+
+  /*
+  This ensures the jumbotron element always is tall enough to contain the image.
+  You need to use calc() because it uses mixed units. This is, repsectively:
+  Jumbotron top padding + image height + jumbotron bottom padding
+  */
+  min-height: calc(4rem + 225px + 4rem);
+}
+#added-by-chuck figure {
+  position: absolute;
+  top: 4rem;
+  left: 2rem;
+  margin: 0 1.5rem;
+}
+#added-by-chuck figure img {
+  margin: 0;
+  max-width: 100%;
+}
+#added-by-chuck a.contact {
+  display: inline-block;
+  width: auto;
+}
 
 
 
@@ -18,7 +46,6 @@
   top: 50%;
   left: 50%;
 
-  
 }
 
 .btn.added-by-alex-primary:focus, .btn-outline-primary.focus {
@@ -4971,6 +4998,11 @@ a.badge-dark:focus, a.badge-dark.focus {
   margin-bottom: 2rem;
   background-color:rgba(255, 255, 255, 0.9);
   border-radius: 0.3rem;
+  width:100%;
+  max-width: 800px;
+  position:relative;
+  margin: 0 auto;
+  text-align: left;
 }
 
 
