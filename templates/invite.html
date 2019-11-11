@@ -1,10 +1,11 @@
 <!doctype html>
-<html>
+<html class="custom">
    <head>
       <title>Encourage</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="/static/css/bootstrap.css">
+      <link rel="stylesheet" href="/static/css/custom.css">
    </head>
    <body class="request">
       {% extends "base.html" %}
@@ -15,15 +16,15 @@
       <div class="flex-md-row">
          <div class="d-flex col-md-*"></div>
          <div class="d-flex justify-content-center flex-column col-md-*">
-            <h1 class="display-1 text-center" style="color:red">Encourage</h1>
-               <h2 class="text-center">Invite friends to start their own profile.</h2>
+            <h1 class="fit text-center" style="color:red">Encourage</h1>
+            <h4 class="fit text-center">Invite friends to start their own profile.</h4>
             <form action="/invite" method="post">
                <div class="form-group">
                   <label for="email">Email:</label>
                   <input type="email" class="form-control" id="email" name="email">
                </div>
                <div class="text-center">
-                  <button type="submit" class="btn added-by-alex btn-outline-dark btn-lg">Invite</button>
+                  <button type="submit" class="btn login-added-by-alex btn-outline-dark btn-lg">Invite</button>
                </div>
             </form>
          </div>
