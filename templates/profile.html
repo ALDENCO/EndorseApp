@@ -1,30 +1,34 @@
-<!DOCTYPE html>
-<html>
-   <body class="register">
-      {% extends "base.html" %} <!-- block content and end block are jinja placeholders set by base.html that are necessary for any instance of jinja placeholders elsewhere in template; ex: for loops calling values from the database -->
-      {% block content %}
-      {% for advocate in advocate %} <!-- jinja templating for loop -->
-      {% for user in user %}
-      <div class="container">
-            <h2>Profiles start out empty.  Request Encouragement to start building your profile.</h2>
-         <div class="jumbotron">
-            <div class="clearfix">
-               <img style="float:left" class="pull-left img-thumbnail" src="{{advocate.picture_url}}">
-               <h3>{{user.first_name}} {{user.last_name}}</h3>
-               <h3>{{user.age}}</h3>
-               <h3>{{user.email}}</h3>
-               <br>
-               <div class="text-center">
-                  <h5>My friend {{advocate.email}} suggested this profile photo and description of me:</h5>
-                  <br>
-                  <h3 class="endorsement_text">{{advocate.endorsement_text}}</h3>
-                  <a href="mailto:{{user.email}}" type="button" class="btn added-by-alex btn-outline-dark btn-lg contact">Contact</a>
-               </div>
+<!doctype html>
+<html class="custom">
+   <body class="profile">
+{% extends "base.html" %} <!-- block content and end block are jinja placeholders set by base.html that are necessary for any instance of jinja placeholders elsewhere in template; ex: for loops calling values from the database -->
+{% block content %}
+{% for advocate in advocate %} <!-- jinja templating for loop -->
+{% for user in user %}
+<div class="container-custom justify-content-center">
+<div class="col-md-*">
+   <h2 class="wrap text-center">Profiles start out empty.  Request Encouragement to start building your profile.</h2>
+   <div class="card-custom">
+      <div class="row no-gutters">
+         <div class="col-md-4">
+            <img src="{{advocate.picture_url}}" class="card-img-custom text-left" alt="...">
+         </div>
+         <div class="col-md-8">
+            <div class="card-body-custom">
+               <h4 class="fit">{{user.first_name}} {{user.last_name}}, {{user.age}}</h4>
+               <!-- <h3 class="fit">{{user.email}}</h3> -->
+               <h3 class="fit">{{advocate.email}} suggested this photo and description of me:</h3>
+               <h4 class="endorsement_text fit" style="color:red">{{advocate.endorsement_text}}</h4>
+               <a href="mailto:{{user.email}}" type="button" class="btn btn-outline-dark btn-lg contact">Contact</a>
             </div>
          </div>
       </div>
-      {% endfor %}
-      {% endfor %}
-      {% endblock %}
+   </div>
+   {% endfor %}
+   {% endfor %}
+   {% endblock %}
+</div>
+</div>
+<div id="push"></div>
    </body>
 </html>

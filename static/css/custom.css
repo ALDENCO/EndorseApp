@@ -336,6 +336,7 @@ h4.fit {
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
+        background-size:cover;
         height: 1024px;
         width: 768px;
         background-position:cover;
@@ -348,6 +349,7 @@ h4.fit {
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
+        background-size:cover;
         height: 1280px;
         width: 800px;
         background-position:cover;
@@ -360,6 +362,7 @@ h4.fit {
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
+        background-size:cover;
         height: 1280px;
         width: 800px;
         background-position:cover;
@@ -372,6 +375,7 @@ h4.fit {
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
+        background-size:cover;
         height: 768px;
         width: 1024px;
         background-position:cover;
@@ -384,6 +388,7 @@ h4.fit {
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
+        background-size:cover;
         height: 800px;
         width: 1280px;
         background-position:cover;
