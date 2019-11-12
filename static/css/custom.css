@@ -25,6 +25,12 @@
           font-size: 20px;
         }
       }
+      @media (min-width: 1280px) {
+        h2.wrap {
+          font-size: 20px;
+          margin-left: 25%;
+        }
+      }
 
     
     h3.fit {
