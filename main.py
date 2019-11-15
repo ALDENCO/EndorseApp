@@ -82,6 +82,7 @@ def is_email(string): #define an email as a string that must include an @ sign
         domain_dot_present = domain_dot_index >= 0
         return domain_dot_present
 
+
 @app.route('/profile', methods = ['GET'])
 def logged_in_user_profile():
     if 'user_id' not in session:  #if the user is not already in session (aka logged in), return them to the login template
@@ -89,20 +90,22 @@ def logged_in_user_profile():
         return redirect("login.html")
     user_id = session['user_id'] #defining the user_id by the user.id that is already logged in / in session in the database
     user = User.query.get(user_id) # get the user from the database
-    advocates = user.advocates # any advocate must be owned / linked/ invited by the user in session
-    return render_template('profile.html', user = user, advocates = advocates) #passes the user and advocate data into the profile so that it will be recognized by jinja
+    advocates = user.advocates  # any advocate must be owned / linked/ invited by the user in session
+    # print("first advocate:", advocates[0].__dict__)
+    return render_template('profile.html', users = user, advocates = advocates) #passes the user and advocate data into the profile so that it will be recognized by jinja
 
 
 @app.route('/profile/<user_id>', methods = ['GET']) #only show the user who's user.id is in session; aka privacy/security
 def specific_users_profile(user_id): #call that specific user id
-    user = User.query.get(user_id) #again, the user equals the user.id in session
-    advocate = user.advocates #the advocate equals the advocate as defined/invited/linked to the user in the database
-    return render_template('profile.html', advocate = advocate, user=[user]) #show me that specific user's profile, only show that specific [user] from the user table
+    user = User.query.get(user_id)  #again, the user equals the user.id in session
+    advocates = user.advocates  #the advocate equals the advocate as defined/invited/linked to the user in the database
+    return render_template('profile.html', advocates = advocates, user=[user]) #show me that specific user's profile, only show that specific [user] from the user table
 
 @app.route('/request_endorsement', methods = ['GET'])
 def view_empty_request_endorsement_form():
     user_id = session['user_id']
     user = User.query.get(user_id)
+    
     return render_template('request_endorsement.html', user=[user])
 SafeSerializer = URLSafeSerializer('advocate_id') # itsdangerous safeserializer is assigning a random key value to the advocate id for security purposes (so anybody from the peanut gallery can't hack another's profile
 

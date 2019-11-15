@@ -173,6 +173,8 @@ h4.fit {
       #added-by-chuck a.contact {
         display: inline-block;
         width: auto;
+        background-color: rgba(255, 255, 255, .25);  backdrop-filter: blur(10px);
+        
       }
       
       
@@ -211,7 +213,7 @@ h4.fit {
       
        .btn.login-added-by-alex {
         color: black;
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, .40);  backdrop-filter: blur(5px);
         border-color: black;
         text-align: center;
         display: inline-block;
@@ -441,7 +443,7 @@ h4.fit {
         flex-direction: column;
         min-width: 0 auto;
         word-wrap: break-word;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, .60);  backdrop-filter: blur(10px);
         background-clip: border-box;
         border: 1px solid rgba(0, 0, 0, 0.125);
         border-radius: 0.25rem;
@@ -573,9 +575,9 @@ h4.fit {
         image-rendering: pixelated;
       } */
     
+
       .card-img-custom {
         padding: 0.25rem;
-        background-color: #fff;
         border: 1px solid #dee2e6;
         border-radius: 0.25rem;
         width: inherit;
