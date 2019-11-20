@@ -3,32 +3,44 @@
    <body class="profile">
 {% extends "base.html" %} <!-- block content and end block are jinja placeholders set by base.html that are necessary for any instance of jinja placeholders elsewhere in template; ex: for loops calling values from the database -->
 {% block content %}
-{% for advocate in advocate %} <!-- jinja templating for loop -->
-{% for user in user %}
 <div class="container-custom justify-content-center">
 <div class="col-md-*">
    <h2 class="wrap text-center">Profiles start out empty.  Request Encouragement to start building your profile.</h2>
    <div class="card-custom">
       <div class="row no-gutters">
          <div class="col-md-4">
-            <img src="{{advocate.picture_url}}" class="card-img-custom text-left" alt="...">
+           
+            {% for advocate in advocates %}
+            <img src="{{ advocate.picture_url|default('https://i.postimg.cc/ZRb7W7dy/untitled.jpg') }}"/>
+            
+               
+              
+            {% else %}
+            <img src="https://i.postimg.cc/ZRb7W7dy/untitled.jpg" class="card-img-custom text-left"/>
+            
+            {% endfor %}
+           
+            
          </div>
          <div class="col-md-8">
             <div class="card-body-custom">
+               {% for user in user %}
                <h4 class="fit">{{user.first_name}} {{user.last_name}}, {{user.age}}</h4>
+               {% endfor %}
                <!-- <h3 class="fit">{{user.email}}</h3> -->
+               {% for advocate in advocates %} <!-- jinja templating for loop -->
                <h3 class="fit">{{advocate.email}} suggested this photo and description of me:</h3>
+               
                <h4 class="endorsement_text fit" style="color:red">{{advocate.endorsement_text}}</h4>
                <a href="mailto:{{user.email}}" type="button" class="btn btn-outline-dark btn-lg contact">Contact</a>
+               {% endfor %}
             </div>
          </div>
       </div>
    </div>
-   {% endfor %}
-   {% endfor %}
    {% endblock %}
 </div>
 </div>
-<div id="push"></div>
+<!-- <div id="push"></div> -->
    </body>
 </html>

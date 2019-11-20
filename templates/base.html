@@ -7,23 +7,23 @@
       <meta name="viewport" content="width=device-width, initial-scale= 1">
       <link rel="stylesheet" href="/static/css/bootstrap.css">
       <link rel="stylesheet" href="/static/css/custom.css">
-      <nav class="navbar">
-         <ul class="navbar-nav">
-            <li class="nav-item">
+      <nav class="navbar1" aria-expanded="false">
+         <ul class="navbar-nav1">
+            <li class="nav-item1">
                <a class="nav-link" href="/home">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item1">
                <a class="nav-link" href="/request_endorsement">Request Encouragement</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item1">
                <a class="nav-link" href="/invite">Invite</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item1">
                {% for user in user %}
                <form action="/profile/{{user.id}}" method="GET"><button class="btn-link added-by-chuck" type="submit">Profile</button></form>
                {% endfor %}
             </li>
-            <li class="nav-item">
+            <li class="nav-item1">
                <form action="/logout" method="POST"><button class="btn-link added-by-chuck" type="submit">Logout</button></form>
             </li>
          </ul>
@@ -34,4 +34,3 @@
       {% block content %} {% endblock %}
    </body>
 </html>
-
