@@ -11,19 +11,20 @@
          <div class="col-md-4">
            
             {% for advocate in advocates %}
-            <img src="{{ advocate.picture_url|default('https://i.postimg.cc/ZRb7W7dy/untitled.jpg') }}"/>
+            <img class="card-img-custom" src="{{ advocate.picture_url|default('https://i.postimg.cc/ZRb7W7dy/untitled.jpg') }}"/>
             
                
               
             {% else %}
-            <img src="https://i.postimg.cc/ZRb7W7dy/untitled.jpg" class="card-img-custom text-left"/>
+            <img class= "card-img-custom" src="https://i.postimg.cc/ZRb7W7dy/untitled.jpg" class="card-img-custom"/>
             
             {% endfor %}
            
             
          </div>
-         <div class="col-md-8">
-            <div class="card-body-custom">
+         <div class="card-body-custom"></div>
+         <div class="col1-md-8, col-lg-4">
+            
                {% for user in user %}
                <h4 class="fit">{{user.first_name}} {{user.last_name}}, {{user.age}}</h4>
                {% endfor %}
@@ -40,7 +41,7 @@
    </div>
    {% endblock %}
 </div>
-</div>
+
 <!-- <div id="push"></div> -->
    </body>
 </html>

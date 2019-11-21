@@ -138,8 +138,8 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      height: 1280px;
-      width: 800px;
+      height: auto;
+      width: auto;
       background-position:cover;
 
       }
@@ -151,8 +151,8 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      height: 800px;
-      width: 1000px;
+      height: auto;
+      width: auto;
       background-position:cover;
 
       }
@@ -164,8 +164,8 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      height: 768px;
-      width: 1024px;
+      height: auto;
+      width: auto;
       background-position:cover;
 
       }
@@ -177,9 +177,9 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      height: 800px;
       min-width: 1280px;
-      width: 100%;
+      height: auto;
+      width: auto;
       background-position:cover;
       }
     }
@@ -189,8 +189,8 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      height: 900px;
-      width: 1600px;
+      height: auto;
+      width: auto;
       background-position:cover;
   
       }
@@ -329,7 +329,7 @@
       background-clip: border-box;
       border: 1px solid rgba(0, 0, 0, 0.125);
       border-radius: 0.25rem;
-      width: 80%;
+      width: auto;
       /* margin-left: auto;
       margin-right: auto; */
       /* overflow-y: scroll; */
@@ -378,7 +378,7 @@
        }
      }
 
-     @media (min-width: 800px, orientation: portrait) {
+     @media (min-width: 800px) {
       .card-custom {
            width:auto;
            height:auto;
@@ -403,7 +403,7 @@
      }
      @media (min-width: 1280px) {
       .card-custom {
-           width:900px;
+           width:auto;
            height:auto;
            display: block;
            /* margin: 0 auto; */
@@ -413,7 +413,7 @@
 
      @media (min-width: 1599px) {
       .card-custom {
-           width:80%;
+           width:auto;
            height:auto;
            display: block;
            margin: 0 auto;
@@ -427,6 +427,7 @@
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
       padding: 1.25rem;
+      width: auto;
     }
   
     @media (min-width: 768px) {
@@ -441,11 +442,18 @@
 
      @media (min-width: 800px) {
       .card-body-custom {
-           width:700px;
+       
            height:auto;
            display: block;
+           width: auto;
            margin: 0 auto;
+           /* float: right; */
            text-align:center;
+           /* justify-content: center; */
+           /* text-align: left; */
+           /* -ms-flex: 1 1 auto;
+           flex: 1 1 auto; */
+
            
        }
      }
@@ -457,14 +465,15 @@
       padding: 0.25rem;
       border: 1px solid #dee2e6;
       border-radius: 0.25rem;
-      width: inherit;
-      height: inherit;
+      max-width: 100%;
+      height: auto;
       margin-top: 0;
       image-rendering: auto;
       image-rendering: crisp-edges;
       image-rendering: pixelated;
       position:relative;
       margin: 0 auto;
+      text-align: center;
     }
 
 
@@ -531,7 +540,7 @@
     }
     @media (min-width: 1600px) {
       .container-custom {
-        min-width: 1600px;
+        width: auto;
         /* margin: auto; */
       }
     }
@@ -539,7 +548,11 @@
 
 
 
-
+    .col1-md-8 {
+      -ms-flex: 0 0 66.666667%;
+      flex: 0 0 66.666667%;
+      max-width: 66.666667%;
+    }
 
 
 
