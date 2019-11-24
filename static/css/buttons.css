@@ -1,0 +1,110 @@
+  /* Chuck from Mozilla showed me how to manipulate exquisite CSS; I will study the padding and everything used here for perfected design/positioning */
+    
+  button.added-by-chuck {
+    appearance: none;
+    display: block;
+    /* padding: 0.5rem 10px; */
+    text-align: left;
+    width: 100%;
+    background: transparent;
+    border:none;
+  }
+  button.added-by-chuck:hover:focus {  
+      background: transparent;
+    }
+
+    @media (min-width: 200px) {
+      button.added-by-chuck {
+        /* display: flex!important; */
+        /* padding: 0.5rem 1rem; */
+        padding: 0.5rem 10px;
+        padding-left: 0.5rem;
+      }}
+
+#added-by-chuck a.contact {
+    display: inline-block;
+    width: auto;
+    background-color: rgba(255, 255, 255, .25);  backdrop-filter: blur(10px);
+    
+  }
+    
+    
+
+
+
+
+
+  /*  My customized ghost button class */
+    
+    .btn.added-by-alex {
+        color: black;
+        background-color: transparent;
+        border-color: black;
+        text-align: left;
+        display: inline;
+        position: relative;
+        top: 50%;
+        left: 50%;
+      
+      }
+      
+      .btn.added-by-alex-primary:focus, .btn-outline-primary.focus {
+        box-shadow: 0 0 0 0.0rem rgba(0, 123, 255, 0.5);
+      }
+      
+      .btn.added-by-alex-primary.disabled, .btn-outline-primary:disabled {
+        color: black;
+        background-color: transparent;
+      }
+      
+      .btn.added-by-alex,.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show>.btn-outline-primary.dropdown-toggle {
+        color: black;
+        background-color:transparent;
+        border-color: black;
+      }
+      
+      .btn.added-by-alex,.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-primary.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.0rem #262526;
+      }
+      
+
+
+
+
+/* my customized login ghost button class */
+
+      
+       .btn.login-added-by-alex {
+        color: black;
+        background-color: rgba(255, 255, 255, .40);  backdrop-filter: blur(5px);
+        border-color: black;
+        text-align: center;
+        display: inline-block;
+        position: inherit;
+        top: 50%;
+        left: 50%;
+        margin-right: 15px;
+      
+      }
+      
+      .btn.added-by-alex-primary:focus, .btn-outline-primary.focus {
+        box-shadow: 0 0 0 0.0rem rgba(0, 123, 255, 0.5);
+      }
+      
+      .btn.added-by-alex-primary.disabled, .btn-outline-primary:disabled {
+        color: black;
+        background-color: transparent;
+      }
+      
+      .btn.added-by-alex,.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show>.btn-outline-primary.dropdown-toggle {
+        color: black;
+        background-color:transparent;
+        border-color: black;
+      }
+      
+      .btn.added-by-alex,.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-primary.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.0rem #262526;
+      }
+    
+  
+  

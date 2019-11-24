@@ -1,0 +1,145 @@
+
+    h3.endorsement_text {
+        text-align: inherit;
+        color: red;
+      }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+     
+  
+  
+    
+  
+      
+      h1.fit {
+        font-size: 10vw;
+      }
+      
+  
+      h2.fit {
+          font-size: 6vw;
+        }
+  
+      h2.wrap {
+      font-size: 2.5vw;
+      
+      }
+  
+      @media (min-width: 200px) {
+        h2.wrap {
+          font-size: 15px;
+        }
+      }
+      @media (min-width: 360px) {
+          h2.wrap {
+            font-size: 20px;
+          }
+        }
+        @media (min-width: 1280px) {
+          h2.wrap {
+            font-size: 20px;
+            margin-left: 25%;
+          }
+        }
+  
+      
+      h3.fit {
+        font-size: 2vw;
+      }
+  
+      @media (min-width: 200px) {
+        h3.fit {
+          font-size: 12px;
+        }
+      }
+  
+      @media (min-width: 360px) {
+          h3.fit {
+            font-size: 12px;
+          }
+        }
+  
+        @media (min-width: 667px) {
+          h3.fit {
+            font-size: 15px;
+          }
+        }
+        @media (min-width: 768px) {
+          h3.fit {
+            font-size: 15px;
+          }
+        }
+  
+  @media (min-width: 800px) {
+      h3.fit {
+        font-size: 20px;
+      }
+    }
+  
+        @media (min-width: 1000px) {
+          h3.fit {
+            font-size: 20px;
+          }
+        }
+      
+  h4.fit {
+      font-size: 4vw;
+  }
+  @media (min-width: 200px) {
+    h4.fit {
+      font-size: 20px;
+    }
+  }
+  
+  @media (min-width: 360px) {
+      h4.fit {
+        font-size: 20px;
+      }
+    }
+  
+    @media (min-width: 667px) {
+      h4.fit {
+        font-size: 35px;
+      }
+    }
+  
+    @media (min-width: 768px) {
+      h4.fit {
+        font-size: 40px;
+      }
+    }
+  
+    @media (min-width: 800px) {
+      h4.fit {
+        font-size: 40px;
+      }
+    }
+  
+  @media (min-width: 1000px) {
+      h4.fit {
+        font-size: 40px;
+      }
+    }
+  
+      p.fit {
+        font-size: 1vw;
+      }
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  

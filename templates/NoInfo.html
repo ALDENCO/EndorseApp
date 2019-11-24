@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="custom">
+   <head>
+      {% block head %}
+      <title>Encourage</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale= 1">
+      <link rel="stylesheet" href="/static/css/bootstrap.css">
+      <link rel="stylesheet" href="/static/css/custom.css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+      <nav class="navbar1 navbar1-expand-sm">
+         <ul class="navbar-nav1">
+            <li class="nav-item1">
+               <form action="/logout" method="POST"><button class="btn-link added-by-chuck" type="submit">Home</button></form>
+            </li>
+         </ul>
+      </nav>
+      {% endblock %}
+   </head>
+   <div class="d-flex container-fluid justify-content-center">
+   <!-- Control the column width, and how they should appear on different devices -->
+   <div class="flex-md-row">
+        <div class="d-flex justify-content-center flex-column col-md-*">
+        <h3 class="fit text-center strong">No login information has been found for that user.</h3>
+    </div>
+        <div class="d-flex justify-content-center flex-column col-md-*">
+      
+      <h3 class="fit text-center">If you believe this is an error, please contact me by clicking the contact button below.</h3>
+      <a href="mailto:alexdevelopsdenver@gmail.com" type="button" class="btn btn-outline-dark btn-lg added-by-chuck contact">Contact</a>
+
+    
+    </div>
+    <div class="d-flex justify-content-center flex-column col-md-*">
+            <h3 class="fit text-center">Alternatively, please click the home button in the top left corner and register for a new account</h3>
+  
+   </div>
+   </div>
+  </div>
+   <body class="home">
+      {% block content %} {% endblock %}
+   </body>
+</html>
+
