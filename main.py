@@ -12,6 +12,18 @@ from flask_debugtoolbar import DebugToolbarExtension
 def view_blank_homepage():
     return render_template('home.html')
 
+@app.errorhandler(403)
+def page_not_found(e):
+    return render_template('403.html', error=str(e))
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', error=str(e))
+    
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('505.html', error = str(e))
+
 
 @app.route('/', methods = ['GET'])
 def index():
@@ -70,7 +82,7 @@ def login():
                 flash('welcome back, '+user.email) 
                 return redirect(f'profile/{user.id}') #take that user to their personal profile
         flash('bad username or password')
-        return render_template("/register") #else return the user to the register template as there data is not verified by the database
+        return render_template("NoInfo.html") #else return the user to the register template as there data is not verified by the database
         
 def is_email(string): #define an email as a string that must include an @ sign
     atsign_index = string.find('@')

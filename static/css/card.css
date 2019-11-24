@@ -1,0 +1,203 @@
+
+    .card-custom {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column wrap;
+        flex-direction: column wrap;
+        min-width: 0 auto;
+        word-wrap: break-word;
+        background-color: rgba(255, 255, 255, .60);  backdrop-filter: blur(10px);
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+        width: auto;
+        height: auto;
+        text-align: left;
+        /* margin-left: auto;
+        margin-right: auto; */
+        /* overflow-y: scroll; */
+        /* margin: 0 auto; */
+      }
+  
+      @media (min-width: 200px) {
+        .card-custom {
+             width:300px;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+         }
+       }
+  
+       @media (min-width: 375px) {
+        .card-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+         }
+       }
+  
+      @media (min-width: 667px) {
+        .card-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+             overflow: hidden;
+         }
+       }
+  
+       @media (min-width: 768px) {
+        .card-custom {
+             width: auto;
+             height: auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+             overflow: scroll;
+         }
+       }
+  
+       @media (min-width: 800px) {
+        .card-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+             /* display: -ms-flexbox;
+             display: flex;
+             -ms-flex-direction: column wrap;
+             flex-direction: column wrap; */
+         }
+       }
+  
+       @media (min-width: 1000px) {
+        .card-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:left;
+         }
+       }
+       @media (min-width: 1280px) {
+        .card-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             /* margin: 0 auto; */
+             text-align:left;
+         }
+       }
+  
+       @media (min-width: 1599px) {
+        .card-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+             
+         }
+       }
+    
+  
+    
+      .card-body-custom {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1.25rem;
+        width: auto;
+        height: auto;
+        display: flex;
+        text-align: left;
+        margin: 0 auto;
+      
+       
+    
+      }
+  
+      @media (min-width: 200px) {
+        .card-body-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+         }
+       }
+    
+      @media (min-width: 768px) {
+        .card-body-custom {
+             width:auto;
+             height:auto;
+             display: block;
+             margin: 0 auto;
+             text-align:center;
+         }
+       }
+  
+       @media (min-width: 800px) {
+        .card-body-custom {
+             width: auto;
+             height:auto;
+             /* display: block; */
+             text-align: center;
+       }
+       }
+    
+    
+  
+      .card-img-custom {
+        padding: 0.25rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        max-width: 100%;
+        height: auto;
+        width: auto;
+        margin-top: 0;
+        image-rendering: auto;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+        position:relative;
+        margin: 0 auto;
+        
+      }
+  
+  
+      /* @media (min-width: 360px) {
+        .card-img-custom {
+           
+             height: 375px;
+             width: 300px;
+             display: block;
+             margin: 0 auto;
+          
+         }
+       } */
+      /* @media (min-width: 667px) {
+       .card-img-custom {
+          
+            height: auto;
+            width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+      } */
+  
+      /* @media (min-width: 768px) {
+        .card-img-custom {
+           
+             height: auto;
+             width: 300px;
+             display: block;
+             margin: 0 auto;
+             align-content: center;
+         }
+       } */
+    
