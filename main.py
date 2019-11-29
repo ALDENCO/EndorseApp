@@ -12,17 +12,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 def view_blank_homepage():
     return render_template('home.html')
 
-@app.errorhandler(403)
-def page_not_found(e):
-    return render_template('403.html', error=str(e))
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html', error=str(e))
-    
-@app.errorhandler(500)
-def page_not_found(e):
-    return render_template('500.html', error=str(e))
 
 
 @app.route('/', methods = ['GET'])
@@ -219,6 +209,18 @@ def logout():
     session.pop('user_id', None) #pop that user.id out of session and make the value none so that no user is in session
     print(session.get('user_id'))
     return redirect('/home') #redirect that user to the login form to create a new session
+
+@app.errorhandler(403)
+def page_not_found(e):
+    return render_template('403.html', error=str(e))
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', error=str(e))
+    
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('500.html', error=str(e))
 
 
 if __name__ == "__main__": #if the name of the file is main, run the app
