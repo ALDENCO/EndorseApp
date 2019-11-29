@@ -22,7 +22,7 @@ def page_not_found(e):
     
 @app.errorhandler(500)
 def page_not_found(e):
-    return render_template('505.html', error = str(e))
+    return render_template('500.html', error=str(e))
 
 
 @app.route('/', methods = ['GET'])
