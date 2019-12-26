@@ -12,23 +12,9 @@ from flask_debugtoolbar import DebugToolbarExtension
 def view_blank_homepage():
     return render_template('home.html')
 
-
-
-
 @app.route('/', methods = ['GET'])
 def index():
     return render_template('home.html') #I've rerouted the index file to the home.html template
-    # owner = request.args.get(["user"])
-    # if owner:
-    #     advocates = Advocate.query.filter_by(owner_id=owner).all()
-  
-    # user = User.query.all()
-    # advocates = Advocate.query.all()
-    # return render_template('index.html', advocates = advocates, user = user, owner = owner)
-    #return render_template('login.html')
-    # if user_is_logged_in():
-    #     return redirect('somewheree else')
-    # return redirect('/login')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -186,10 +172,6 @@ def view_empty_user_invite_form():
 def send_user_invite_form():
     email = request.form['email']
     user = User.query.first()
-    #import pdb; pdb.set_trace()
-    # if user in session:
-    #     print(yes)
-
     url = ("https://api.mailgun.net/v3/www.alexrmyers.com/messages")
     auth=('api', os.getenv('API_KEY'))
     data={"from": "postmaster@www.alexrmyers.com",
@@ -198,14 +180,11 @@ def send_user_invite_form():
             "text": f"{user.first_name} {user.last_name} wants you to join their social circle! https://encourageapp.herokuapp.com/register"}
     response = requests.post(url , auth = auth, data = data)
     resp = response.content
-    # resp = response.json
-    # print(response.content)
     return redirect(f'profile/{user.id}')
 
 
 @app.route('/logout', methods=['GET','POST']) 
 def logout():
-    # print(user_id)
     session.pop('user_id', None) #pop that user.id out of session and make the value none so that no user is in session
     print(session.get('user_id'))
     return redirect('/home') #redirect that user to the login form to create a new session
