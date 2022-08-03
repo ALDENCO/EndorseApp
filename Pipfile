@@ -13,7 +13,7 @@ flask-debugtoolbar = "*"
 flask-migrate = "*"
 gunicorn = "*"
 flask-sqlalchemy = "*"
-psycopg3 = "*"
+psycopg = "*"
 
 [requires]
 python_version = "3.10.6"
