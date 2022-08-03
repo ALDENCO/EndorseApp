@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
-import psycopg2 #psycopg2 is crucial to postgres
+import psycopg #psycopg2 is crucial to postgres
 from flask_migrate import Migrate #flask migrate allows for easy migration of databases between development and production environments
 
 
